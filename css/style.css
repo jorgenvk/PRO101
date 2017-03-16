@@ -1,5 +1,25 @@
 body {
-    height: auto;
-    width: 100%;
-    background-color: #2c293f;
+    background: #114357;
+    /* fallback for eldre webbrowsere */
+    background: -webkit-linear-gradient(to left, #114357, #F29492);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #114357, #F29492);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: cadetblue;
+    
+}
+
+container {
+    margin: auto;
+    position: relative;
+    top: auto;
+    bottom: -350px;
+    width: 500px;
+    
+    
 }
