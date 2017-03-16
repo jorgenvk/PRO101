@@ -1,25 +1,63 @@
-body {
-    background: #114357;
-    /* fallback for eldre webbrowsere */
-    background: -webkit-linear-gradient(to left, #114357, #F29492);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #114357, #F29492);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-h1 {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: cadetblue;
+    /*HOVEDSIDE*/
     
-}
-
-container {
-    margin: auto;
-    position: relative;
-    top: auto;
-    bottom: -350px;
-    width: 500px;
+    body {
+        background: #114357;
+        /* fallback for eldre browsere */
+        background: -webkit-linear-gradient(to left, #114357, #F29492);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #114357, #F29492);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        height: auto;
+        width: 100%;
+    }
+    /*FELLES POSITION*/
     
+    #container>* {
+        position: absolute;
+    }
     
-}
+    #container {
+        margin: auto;
+        position: relative;
+        width: 1300px;
+        height: 650px;
+    }
+    /* -- HEADER -- */
+    
+    #Header,
+    #UnderHeader {
+        position: absolute;
+        text-align: center;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+        left: 100px;
+    }
+    
+    #Header {
+        font-size: 100px;
+        font-weight: 700;
+        margin-top: 90px;
+        margin-left: 350px;
+        animation-name: tittel;
+        animation-duration: 5s;
+        -webkit-animation-name: tittel;
+        -webkit-animation-duration: 5s;
+    }
+    
+    #UnderHeader {
+        margin-left: 340px;
+        font-weight: 300;
+        font-size: 50px;
+        margin-top: 200px;
+        width: 400px;
+        animation-name: tittel;
+        animation-duration: 5s;
+        -webkit-animation-name: tittel;
+        -webkit-animation-duration: 5s;
+    }
+    
+    {
+        margin: auto;
+        top: 100px;
+        height: 300px;
+    }
