@@ -1,15 +1,8 @@
     /*HOVEDSIDE*/
     
     body {
-        background: #114357;
-        /* fallback for eldre browsere */
-        background: -webkit-linear-gradient(to left, #114357, #F29492);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to left, #114357, #F29492);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         height: auto;
-        width: 100%;
-        background-image: url("/bilder/school.jpg");
+        background-image: url("/bilder/blurrycity.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -22,86 +15,77 @@
     #container {
         margin: auto;
         position: relative;
-        width: 1300px;
-        height: 750px;
+        width: 1000px;
+        height: 500px;
     }
     /* -- HEADER ----- */
     
-    #Header,
-    #UnderHeader {
-        position: absolute;
+    #logo {
+        position: relative;
         text-align: center;
-        color: #ffffff;
+        color: white;
         font-family: 'Roboto', sans-serif;
-        left: 100px;
+        font-size: 5em;
+        top: 300px;
+        margin-bottom: auto;
+        margin-left: auto;
     }
-    
-    #Header {
-        font-size: 100px;
-        font-weight: 700;
-        margin-top: 90px;
-        margin-left: 350px;
-        animation-name: tittel;
-        animation-duration: 5s;
-        -webkit-animation-name: tittel;
-        -webkit-animation-duration: 5s;
-    }
-    
-    #UnderHeader {
-        margin-left: 340px;
-        font-weight: 300;
-        font-size: 50px;
-        margin-top: 200px;
-        width: 400px;
-        animation-name: tittel;
-        animation-duration: 5s;
-        -webkit-animation-name: tittel;
-        -webkit-animation-duration: 5s;
-    }
+    /*    Alt innenfor NavBar-container    */
     
     #NavBar>* {
         position: absolute;
+        text-align: center;
+        width: 1000px;
+        height: 100px;
     }
     
     #NavBar {
-        height: 150px;
+        position: relative;
+        height: 100px;
         width: 1000px;
-        top: 500px;
-        left: 150px;
+        top: 400px;
+        margin-bottom: auto;
+        margin-top: auto;
     }
+    /*    Uteliv-ikon:     */
     
     #ICON-Uteliv {
-        width: 150px;
-        height: 150px;
-        left: 150px;
+        width: 100px;
+        height: 100px;
+        margin-left: 200px;
     }
+    /*    Trening-ikon     */
     
     #ICON-Trening {
-        width: 150px;
-        height: 150px;
-        left: 250px;
+        width: 100px;
+        height: 100px;
+        margin-left: 300px;
     }
+    /*    Helse-ikon   */
     
     #ICON-Helse {
-        width: 150px;
-        height: 150px;
-        left: 350px;
+        width: 100px;
+        height: 100px;
+        margin-left: 400px;
     }
+    /*     Uteliv-ikon    */
     
     #ICON-Kollektivtransport {
-        width: 150px;
-        height: 150px;
-        left: 450px;
+        width: 100px;
+        height: 100px;
+        margin-left: 500px;
     }
+    /*    Spisesteder-ikon    */
     
     #ICON-Spisesteder {
-        width: 150px;
-        height: 150px;
-        left: 550px;
+        width: 100px;
+        height: 100px;
+        margin-left: 600px;
     }
+    /*     Butikker-ikon    */
     
     #ICON-Butikker {
-        width: 150px;
-        height: 150px;
-        left: 650px;
+        width: 100px;
+        height: 100px;
+        margin-left: 700px;
     }
