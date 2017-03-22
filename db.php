@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "testdb";
+$servername = "ns1.ams33.siteground.eu";
+$username = "oasisarc_grp35";
+$password = "gruppe35erbest";
+$dbname = "oasisarc_pro100";
 
 // Kobler til
 $conn = new mysqli($servername, $username, $password, $dbname);
