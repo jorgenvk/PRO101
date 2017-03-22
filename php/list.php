@@ -11,10 +11,29 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error){
     die("Connection failed: " . $conn->connect_error);
 }
+?>
+
+<p>Sorter etter: </p><p><a href="list.php?sortby=kategori">Kategori</a></p><p><a href="list.php?sortby=navn"> Navn</a></p>
+
+<?php
 
 //SQL spørring
 $sql = "SELECT * FROM Bedrifter";
 
+
+if (isset($_GET['sortby'])) {
+
+  $sortby = $_GET['sortby'];
+
+
+
+if ($sortby == 'kategori') {
+    $sql = "SELECT * FROM Bedrifter ORDER BY Kategori_navn ASC";
+  }
+  elseif ($sortby == 'navn') {
+    $sql = "SELECT * FROM Bedrifter ORDER BY Bedrift_navn ASC";
+  }
+}
 $result = $conn->query($sql);
 
 //Hvis resultatet av spørringen gir mer enn null rader, skriv ut. 
