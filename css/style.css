@@ -10,7 +10,7 @@
         height: auto;
         width: 100%;
         background-image: url("/bilder/school.jpg");
-        background-size: auto;
+        background-size: 100%;
         background-repeat: no-repeat;
     }
     /*FELLES POSITION*/
@@ -58,9 +58,50 @@
         -webkit-animation-name: tittel;
         -webkit-animation-duration: 5s;
     }
-#NavBar {
-    position: relative;
-    top: 500px;
-    left: 250px;
-    width: 150px;
-}
+    
+    #NavBar>* {
+        position: absolute;
+    }
+    
+    #NavBar {
+        height: 150px;
+        width: 1000px;
+        top: 500px;
+        left: 150px;
+    }
+    
+    #ICON-Uteliv {
+        width: 150px;
+        height: 150px;
+        left: 150px;
+    }
+    
+    #ICON-Trening {
+        width: 150px;
+        height: 150px;
+        left: 250px;
+    }
+    
+    #ICON-Helse {
+        width: 150px;
+        height: 150px;
+        left: 350px;
+    }
+    
+    #ICON-Kollektivtransport {
+        width: 150px;
+        height: 150px;
+        left: 450px;
+    }
+    
+    #ICON-Spisesteder {
+        width: 150px;
+        height: 150px;
+        left: 550px;
+    }
+    
+    #ICON-Butikker {
+        width: 150px;
+        height: 150px;
+        left: 650px;
+    }
