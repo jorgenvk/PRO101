@@ -9,6 +9,9 @@
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         height: auto;
         width: 100%;
+        background-image: url("/bilder/school.jpg");
+        background-size: auto;
+        background-repeat: no-repeat;
     }
     /*FELLES POSITION*/
     
@@ -20,7 +23,7 @@
         margin: auto;
         position: relative;
         width: 1300px;
-        height: 650px;
+        height: 750px;
     }
     /* -- HEADER ----- */
     
@@ -55,3 +58,9 @@
         -webkit-animation-name: tittel;
         -webkit-animation-duration: 5s;
     }
+#NavBar {
+    position: relative;
+    top: 500px;
+    left: 250px;
+    width: 150px;
+}
