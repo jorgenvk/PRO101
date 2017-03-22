@@ -24,10 +24,14 @@ if ($conn->query($sql) === true) {
 
 // Lager en tabell i databasen
 
-$sql = "CREATE TABLE tabelltest (
-id INT(6) AUTO_INCREMENT PRIMARY KEY,
-navn VARCHAR(32) NOT NULL
-)";
+$sql = "CREATE TABLE `Kategori` (`Kategori_navn` VARCHAR(128) NOT NULL, `Beskrivelse` VARCHAR(128),
+PRIMARY KEY (`Kategori_navn`));
+
+CREATE TABLE `Bedrifter` (`Bedrift_navn` VARCHAR(128) NOT NULL, `Kategori` VARCHAR(128),
+`Adresse` VARCHAR(128), `Telefon` INT, `Beskrivelse` VARCHAR(128), `Åpningstider` VARCHAR(128),
+`Nettside` VARCHAR(128), PRIMARY KEY(`Bedrift_navn`), 
+FOREIGN KEY(`Kategori`) REFERENCES `Kategori`(`Kategori_navn`));
+";
 
 
 
