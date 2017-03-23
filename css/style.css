@@ -2,7 +2,7 @@
     
     body {
         height: auto;
-        background-image: url("/bilder/blurrycity.jpg");
+        background-image: url("/bilder/school.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -15,8 +15,8 @@
     #container {
         margin: auto;
         position: relative;
-        width: 1000px;
-        height: 500px;
+        width: 100%;
+        height: 750px;
     }
     /* -- HEADER ----- */
     
@@ -24,68 +24,70 @@
         position: relative;
         text-align: center;
         color: white;
+        text-shadow: 2px 2px #000000;
         font-family: 'Roboto', sans-serif;
         font-size: 5em;
         top: 300px;
-        margin-bottom: auto;
-        margin-left: auto;
+        margin: auto;
+        background: red;
     }
     /*    Alt innenfor NavBar-container    */
     
     #NavBar>* {
         position: absolute;
         text-align: center;
-        width: 1000px;
+        width: 100%;
         height: 100px;
+        color: white;
     }
     
     #NavBar {
         position: relative;
         height: 100px;
-        width: 1000px;
         top: 400px;
         margin-bottom: auto;
         margin-top: auto;
+        background: red;
     }
     /*    Uteliv-ikon:     */
     
     #ICON-Uteliv {
         width: 100px;
         height: 100px;
-        margin-left: 200px;
+        margin-left: 450px;
     }
     /*    Trening-ikon     */
     
     #ICON-Trening {
         width: 100px;
         height: 100px;
-        margin-left: 300px;
+        margin-left: 550px;
     }
     /*    Helse-ikon   */
     
     #ICON-Helse {
         width: 100px;
         height: 100px;
-        margin-left: 400px;
+        margin-left: 650px;
     }
     /*     Uteliv-ikon    */
     
     #ICON-Kollektivtransport {
         width: 100px;
         height: 100px;
-        margin-left: 500px;
+        margin-left: 750px;
     }
     /*    Spisesteder-ikon    */
     
     #ICON-Spisesteder {
         width: 100px;
         height: 100px;
-        margin-left: 600px;
+        margin-left: 850px;
     }
     /*     Butikker-ikon    */
     
     #ICON-Butikker {
         width: 100px;
         height: 100px;
-        margin-left: 700px;
+        margin-left: 950px;
     }
