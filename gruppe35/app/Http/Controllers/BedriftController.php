@@ -15,4 +15,15 @@ class BedriftController extends Controller
 
     	return view ('bedrift.ny', compact('kategorier'));
     }
+
+
+    public function listBedrifter() 
+    {
+
+    	$bedrifter = Bedrift::all();
+
+
+
+    	return view ('bedrift.list', compact('bedrifter'));
+    }
 }

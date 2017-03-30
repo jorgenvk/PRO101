@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
+
+Route::get('bedrift/list', 'BedriftController@listBedrifter');
