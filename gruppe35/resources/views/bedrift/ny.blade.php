@@ -25,14 +25,15 @@
         <div class="col-lg-5">
             <h4>Informasjon - Ny bedrift</h4>
             <div class="input-group" style="width: 90%">
-                    <form method="POST" name="formNyBedrift" action="">
+                    <form method="POST" name="formNyBedrift" action="{{ url('bedrift/lagre') }}">
+                        {{ csrf_field() }}
                         Bedriftens navn: <input type="" class="form-control" name="Navn" id="Navn" /><br>
                         Adresse: <input type="text" class="form-control" name="Adresse" id="Adresse" /><br>
                         Kategori: <select class="form-control" name="Kategori" id="Kategori">
                             <?php
                                 // Itererer over alle kategoriene hentet fra DB
                                 foreach ($kategorier as $kategori)
-                                    {echo "<option value='".$kategori['Kategori_navn']."'>".$kategori['Kategori_navn']."</option>";}
+                                    {echo "<option value='".$kategori['Kategori_id']."'>".$kategori['Kategori_navn']."</option>";}
                             ?>
                         </select><br>
                         Telefonnummer: <input type="text" class="form-control" name="Telefon" id="Telefon" /><br>

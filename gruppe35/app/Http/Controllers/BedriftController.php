@@ -8,16 +8,16 @@ use App\Kategori;
 
 class BedriftController extends Controller
 {
-    public function pageNyBedrift()
+
+    public function pageLeggTilBedrift()
     {
-    	//
+    	// Henter alle kategorier;
     	$kategorier = Kategori::all();
 
     	return view ('bedrift.ny', compact('kategorier'));
     }
 
-
-    public function listBedrifter() 
+        public function listBedrifter() 
     {
 
     	$bedrifter = Bedrift::all();
@@ -26,4 +26,21 @@ class BedriftController extends Controller
 
     	return view ('bedrift.list', compact('bedrifter'));
     }
+
+    public function postNyBedrift(Request $request)
+    {
+    	// TO-DO legge til Validator, sørge for at form-data er gyldig, osv..
+    	$bedrift = New Bedrift;
+    	$bedrift->Bedrift_navn	= $request->Navn;
+		$bedrift->Kategori_id 	= $request->Kategori;
+		$bedrift->Adresse 		= $request->Adresse;
+		$bedrift->Telefon 		= $request->Telefon;
+		$bedrift->Beskrivelse	= $request->Beskrivelse;
+		$bedrift->Åpningstider	= $request->Åpningstider;
+		$bedrift->Nettside		= $request->Nettside;
+
+		$bedrift->save();
+		return redirect()->back();
+    }
+
 }
