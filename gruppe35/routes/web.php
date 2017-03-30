@@ -15,5 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
+// ::::::: BEDRIFT URLer :::::::
+Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');
+Route::post('bedrift/lagre', 'BedriftController@postNyBedrift');

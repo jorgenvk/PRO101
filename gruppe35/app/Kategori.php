@@ -8,5 +8,6 @@ class Kategori extends Model
 {
     // ::: Navn på tabell i DB
     protected $table = 'Kategori';
+    public $timestamps = false;
     
 }
