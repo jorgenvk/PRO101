@@ -33,7 +33,7 @@
 
    					<td><?= $bedrift['Bedrift_navn'] ?></td>
    					<td><?= $bedrift['Adresse'] ?></td>
-   					<td><?= $bedrift['Tlf'] ?></td>
+   					<td><?= $bedrift['Telefon'] ?></td>
    					<td><?= $bedrift['Beskrivelse'] ?></td>
    					<td><?= $bedrift['Åpningstider'] ?></td>
    					<td><?= $bedrift['Nettside'] ?></td>
