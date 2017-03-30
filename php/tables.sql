@@ -1,7 +1,20 @@
-CREATE TABLE `Kategori` (`Kategori_navn` VARCHAR(128) NOT NULL, `Beskrivelse` VARCHAR(128),
-PRIMARY KEY (`Kategori_navn`));
+CREATE TABLE `Kategori` (
+	`id` INT NOT NULL AUTO_INCREMENT, 
+	`Kategori_navn` VARCHAR(255) NOT NULL, 
+	`Beskrivelse` VARCHAR(255),
+	`Icon_url` TEXT,
+PRIMARY KEY (`id`));
 
-CREATE TABLE `Bedrifter` (`Bedrift_navn` VARCHAR(128) NOT NULL, `Kategori` VARCHAR(128),
-`Adresse` VARCHAR(128), `Telefon` INT, `Beskrivelse` VARCHAR(128), `Åpningstider` VARCHAR(128),
-`Nettside` VARCHAR(128), PRIMARY KEY(`Bedrift_navn`), 
-FOREIGN KEY(`Kategori`) REFERENCES `Kategori`(`Kategori_navn`));
+
+CREATE TABLE `Bedrifter` (
+	`id` INT NOT NULL AUTO_INCREMENT, 
+	`Bedrift_navn` VARCHAR(255) NOT NULL, 
+	`Kategori_id` INT,
+	`Adresse` VARCHAR(255), 
+	`Telefon` INT, 
+	`Beskrivelse` VARCHAR(255), 
+	`Åpningstider` VARCHAR(255),
+	`Nettside` VARCHAR(255), 
+PRIMARY KEY(`id`), 
+FOREIGN KEY(`Kategori_id`) 
+REFERENCES `Kategori`(`id`));
