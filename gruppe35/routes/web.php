@@ -24,3 +24,8 @@ Route::get('bedrift/list', 'BedriftController@listBedrifter');
 Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');
 Route::post('bedrift/lagre', 'BedriftController@postNyBedrift');
 
+// ::::::: TEST/midlertidige URLer :::::::
+Route::get('bilder', function () {
+    return view('bilder');
+});
+Route::post('bilder/upload', 'BildeController@upload');
