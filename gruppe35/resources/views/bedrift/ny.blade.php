@@ -27,14 +27,19 @@
             <div class="input-group" style="width: 90%">
                     <form method="POST" name="formNyBedrift" action="{{ url('bedrift/lagre') }}">
                         {{ csrf_field() }}
+                        Bedriftens profilbilde:
+                        <label class="btn btn-info" for="file-profilbilde" style="margin-left: 10px;">
+                            <input id="file-profilbilde" navn="file-profilbilde" type="file" style="display:none;"><span class="glyphicon glyphicon-camera"></span>
+                        </label><br>
                         Bedriftens navn: <input type="" class="form-control" name="Navn" id="Navn" /><br>
                         Adresse: <input type="text" class="form-control" name="Adresse" id="Adresse" /><br>
                         Kategori: <select class="form-control" name="Kategori" id="Kategori">
-                            <?php
-                                // Itererer over alle kategoriene hentet fra DB
-                                foreach ($kategorier as $kategori)
-                                    {echo "<option value='".$kategori['Kategori_id']."'>".$kategori['Kategori_navn']."</option>";}
-                            ?>
+            
+                                <!-- Itererer over alle kategoriene hentet fra DB -->
+                                @foreach ($kategorier as $kategori)
+                                    <option value="{{ $kategori->id }}"> {{ $kategori->Kategori_navn }}</option>
+                                @endforeach
+
                         </select><br>
                         Telefonnummer: <input type="text" class="form-control" name="Telefon" id="Telefon" /><br>
                         Beskrivelse: <textarea rows="5" class="form-control" name="Beskrivelse" id="Beskrivelse"></textarea><br>
@@ -42,7 +47,7 @@
                         Nettside: <input type="text" class="form-control" name="Nettside" id="Nettside" /><br>
                         <input type="submit" class="btn btn-info pull-right" style="margin-top: 10px;" value="Registrer bedrift">
                       </form>
-                    </div>            
+              </div>            
         </div>
 
         <div class="col-lg-7">
