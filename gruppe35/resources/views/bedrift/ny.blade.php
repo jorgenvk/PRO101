@@ -25,13 +25,11 @@
         <div class="col-lg-5">
             <h4>Informasjon - Ny bedrift</h4>
             <div class="input-group" style="width: 90%">
-                    <form method="POST" name="formNyBedrift" action="{{ url('bedrift/lagre') }}">
+                    <form method="POST" enctype="multipart/form-data" name="formNyBedrift" id="formNyBedrift" action="{{ url('bedrift/lagre') }}">
                         {{ csrf_field() }}
                         Bedriftens profilbilde:
-                        <label class="btn btn-info" for="file-profilbilde" style="margin-left: 10px;">
-                            <input id="file-profilbilde" navn="file-profilbilde" type="file" style="display:none;"><span class="glyphicon glyphicon-camera"></span>
-                        </label><br>
-                        Bedriftens navn: <input type="" class="form-control" name="Navn" id="Navn" /><br>
+                        <input type="file" id="fil" name="fil">
+                        Bedriftens navn: <input type="text" class="form-control" name="Navn" id="Navn" /><br>
                         Adresse: <input type="text" class="form-control" name="Adresse" id="Adresse" /><br>
                         Kategori: <select class="form-control" name="Kategori" id="Kategori">
             
@@ -43,7 +41,7 @@
                         </select><br>
                         Telefonnummer: <input type="text" class="form-control" name="Telefon" id="Telefon" /><br>
                         Beskrivelse: <textarea rows="5" class="form-control" name="Beskrivelse" id="Beskrivelse"></textarea><br>
-                        Åpningstider: <input type="text" class="form-control" name="Åpningstider" id="Åpningstider" /><br>
+                        Åpningstidqer: <input type="text" class="form-control" name="Åpningstider" id="Åpningstider" /><br>
                         Nettside: <input type="text" class="form-control" name="Nettside" id="Nettside" /><br>
                         <input type="submit" class="btn btn-info pull-right" style="margin-top: 10px;" value="Registrer bedrift">
                       </form>
