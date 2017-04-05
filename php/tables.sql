@@ -18,3 +18,13 @@ CREATE TABLE `Bedrifter` (
 PRIMARY KEY(`id`), 
 FOREIGN KEY(`Kategori_id`) 
 REFERENCES `Kategori`(`id`));
+
+CREATE TABLE `Bilde`(
+`id` INT NOT NULL AUTO_INCREMENT,
+`Bilde` VARCHAR(255) NOT NULL,
+`Bedrift_id` INT,
+`created_at` DATETIME,
+`updated_at` DATETIME,
+PRIMARY KEY (`id`),
+FOREIGN KEY (`Bedrift_id`)
+REFERENCES `Bedrifter`(`id`));

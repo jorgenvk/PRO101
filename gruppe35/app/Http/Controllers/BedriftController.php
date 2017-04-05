@@ -18,7 +18,7 @@ class BedriftController extends Controller
     	return view ('bedrift.ny', compact('kategorier'));
     }
 
-        public function listBedrifter() 
+    public function listBedrifter() 
     {
 
     	$bedrifter = Bedrift::all();
@@ -64,6 +64,38 @@ class BedriftController extends Controller
 
         //Tilbakemelding på at bedrift ble lagt til?
 		return redirect()->back();
+    }
+
+    public function uteliv() {
+
+        $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
+
+        $kategorier = Kategori::all();
+
+        return view ('bedrift.list', compact('bedrifter', 'kategorier'));
+    }
+
+    public function sort($filter) 
+    {
+        if($filter == 'Uteliv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
+        }
+        else if($filter == 'Butikker') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '2')->get();
+        }
+        else if($filter == 'Kollektiv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '3')->get();
+        }
+        else if($filter == 'Helse') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '4')->get();
+        }
+        else if($filter == 'Trening') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '5')->get();
+        }
+
+        $kategorier = Kategori::all();
+
+        return view ('bedrift.list', compact('bedrifter', 'kategorier'));
     }
 
 }

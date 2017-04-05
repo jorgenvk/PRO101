@@ -20,6 +20,10 @@ Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
 
 Route::get('bedrift/list', 'BedriftController@listBedrifter');
 
+Route::get('bedrift/list/{filter}', 'BedriftController@sort');
+
+
+
 // ::::::: BEDRIFT URLer :::::::
 Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');
 Route::post('bedrift/lagre', 'BedriftController@postNyBedrift');
