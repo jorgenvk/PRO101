@@ -17,11 +17,12 @@
    <div class="container">
    		<div class="col-md-12">
    			<h1>Resultat</h1>
+            <a href="{{ url('bedrift/list') }}">Alle</a>
                      <?php foreach($kategorier as $kategori) { ?>
-                           <a href="#">{{ $kategori->Kategori_navn }}</a>
+                           <a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}">{{ $kategori->Kategori_navn }}</a>
                      
                      <?php } ?>
-   			@foreach ($bedrifter as $bedrift)
+   			
    			<table class="table">
 
    				<tr>
@@ -33,6 +34,7 @@
    					<th>Åpningstider</th>
    					<th>Nettside</th>
    				</tr>
+               @foreach ($bedrifter as $bedrift)
    				<tr>
                   <td>{{ $bedrift->kategori->Kategori_navn }}</td>
    					<td><?= $bedrift['Bedrift_navn'] ?></td>
@@ -43,8 +45,9 @@
    					<td><?= $bedrift['Nettside'] ?></td>
                   <td><?= $bedrift['Bilde'] ?></td>
    				</tr>
+               @endforeach
    			</table>
-   			@endforeach
+   			
    		</div>
         
    </div> 

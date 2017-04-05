@@ -45,4 +45,36 @@ class BedriftController extends Controller
 		return redirect()->back();
     }
 
+    public function uteliv() {
+
+        $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
+
+        $kategorier = Kategori::all();
+
+        return view ('bedrift.list', compact('bedrifter', 'kategorier'));
+    }
+
+    public function sort($filter) 
+    {
+        if($filter == 'Uteliv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
+        }
+        else if($filter == 'Butikker') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '2')->get();
+        }
+        else if($filter == 'Kollektiv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '3')->get();
+        }
+        else if($filter == 'Helse') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '4')->get();
+        }
+        else if($filter == 'Trening') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '5')->get();
+        }
+
+        $kategorier = Kategori::all();
+
+        return view ('bedrift.list', compact('bedrifter', 'kategorier'));
+    }
+
 }
