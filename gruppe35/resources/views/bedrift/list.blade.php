@@ -19,7 +19,7 @@
    			<h1>Resultat</h1>
             <a href="{{ url('bedrift/list') }}">Alle</a>
                      <?php foreach($kategorier as $kategori) { ?>
-                           <a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}">{{ $kategori->Kategori_navn }}</a>
+                           <a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}"><img src="{{ url('icons/'.$kategori->Kategori_navn.'.png') }}" width="50px">{{ $kategori->Kategori_navn }}</a>
                      
                      <?php } ?>
    			
