@@ -28,8 +28,8 @@
                     <form method="POST" name="formNyBedrift" action="{{ url('bedrift/lagre') }}">
                         {{ csrf_field() }}
                         Bedriftens profilbilde:
-                        <label class="btn btn-info" for="file-profilbilde" style="margin-left: 10px;">
-                            <input id="file-profilbilde" navn="file-profilbilde" type="file" style="display:none;"><span class="glyphicon glyphicon-camera"></span>
+                        <label class="btn btn-info" for="fil-profilbilde" style="margin-left: 10px;">
+                            <input id="fil-profilbilde" navn="fil-profilbilde" type="file" style="display:none;"><span class="glyphicon glyphicon-camera"></span>
                         </label><br>
                         Bedriftens navn: <input type="" class="form-control" name="Navn" id="Navn" /><br>
                         Adresse: <input type="text" class="form-control" name="Adresse" id="Adresse" /><br>
