@@ -11,7 +11,7 @@ class Bedrift extends Model
 
     // Forholdet mellom databasene. En bedrift har en kategori
     public function kategori() {
-    	$this->hasOne('App\Kategori');
+    	return $this->hasOne('App\Kategori', 'id', 'Kategori_id');
     }
 
 }

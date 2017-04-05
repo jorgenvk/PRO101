@@ -22,9 +22,11 @@ class BedriftController extends Controller
 
     	$bedrifter = Bedrift::all();
 
+        $kategorier = Kategori::all();
 
 
-    	return view ('bedrift.list', compact('bedrifter'));
+
+    	return view ('bedrift.list', compact('bedrifter', 'kategorier'));
     }
 
     public function postNyBedrift(Request $request)

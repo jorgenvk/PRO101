@@ -12,7 +12,7 @@ class Kategori extends Model
 
     //Forholdet mellom databasene. En kategori har mange bedrifter.
     public function bedrifter() {
-    	$this->hasMany('App\Bedrift');
+    	return $this->hasMany('App\Bedrift');
     }
     public $timestamps = false;
 
