@@ -41,6 +41,7 @@
    					<td><?= $bedrift['Beskrivelse'] ?></td>
    					<td><?= $bedrift['Åpningstider'] ?></td>
    					<td><?= $bedrift['Nettside'] ?></td>
+                  <td><?= $bedrift['Bilde'] ?></td>
    				</tr>
    			</table>
    			@endforeach
