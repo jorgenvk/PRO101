@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen>
+  <parentCode />
+  <folderPosition>4</folderPosition>
+  <name>UndersideShopping</name>
+  <code>e29353f1-2ba8-4f34-9935-eb198f2f290f</code>
+  <templateID>47bb40f8-b3e1-40cb-9150-02b5b49beab4</templateID>
+  <date>05/04/2017 15:29:30</date>
+  <note></note>
+  <legend-item></legend-item>
+  <pageAlignment>CENTER</pageAlignment>
+  <orientation>PORTRAIT</orientation>
+  <backgroundGrowth>BOTH</backgroundGrowth>
+  <width>1024</width>
+  <height>768</height>
+  <item-group id="b8484b26-5e00-4c7b-b9bf-f6a23e4a23f6" visible="true">
+    <style name="LnFCanvas">
+      <DimensionStyle width="0" height="0" />
+      <PositioningStyle left="0" top="0" />
+      <BackgroundStyle type="transparent" />
+      <TransparencyStyle value="0" />
+    </style>
+  </item-group>
+  <Events />
+</screen>
+

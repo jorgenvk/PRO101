@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BedriftController@listBedrifter');
 
 
 Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');

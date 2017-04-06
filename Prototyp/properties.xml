@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+  <prototypeID>7ee8fc7e-5495-449d-84ab-fd1756da134e</prototypeID>
+  <cloudID>0</cloudID>
+  <accountCloudID>0</accountCloudID>
+  <cloudURL></cloudURL>
+  <version>7.8.0.20170321</version>
+  <prototypeDevice>web</prototypeDevice>
+  <canvasSize w="800" h="600" />
+  <canvasOrientation>PORTRAIT</canvasOrientation>
+  <defaultTemplateCode>f39803f7-df02-4169-93eb-7547fb8c961a</defaultTemplateCode>
+  <homeScreenCode>266eeafc-a435-4982-a34f-4144f19cca03</homeScreenCode>
+</properties>
+

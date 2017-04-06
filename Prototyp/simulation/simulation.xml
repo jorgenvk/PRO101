@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <device>web</device>
+  <scale>100</scale>
+  <orientation>portrait</orientation>
+  <widthValue>0</widthValue>
+  <heightValue>0</heightValue>
+  <hasHighlight>true</hasHighlight>
+  <includeScenarios>true</includeScenarios>
+  <includeRequirements>true</includeRequirements>
+  <hasFitScreen>false</hasFitScreen>
+  <hasTopPanel>false</hasTopPanel>
+  <hasRotate>false</hasRotate>
+  <hasGestureTool>false</hasGestureTool>
+  <hasZoom>false</hasZoom>
+</settings>
+
