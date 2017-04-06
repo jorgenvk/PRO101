@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Bedrift;
 use App\Kategori;
+use App\Ratings;
 use Storage;
 
 class BedriftController extends Controller
@@ -66,15 +67,8 @@ class BedriftController extends Controller
 		return redirect()->back();
     }
 
-    public function uteliv() {
 
-        $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
-
-        $kategorier = Kategori::all();
-
-        return view ('bedrift.list', compact('bedrifter', 'kategorier'));
-    }
-
+    // Sorteringsfunksjon. sorterer på kategori 
     public function sort($filter) 
     {
         if($filter == 'Uteliv') {
@@ -96,6 +90,27 @@ class BedriftController extends Controller
         $kategorier = Kategori::all();
 
         return view ('bedrift.list', compact('bedrifter', 'kategorier'));
+    }
+
+    public function admin() 
+    {
+
+        $bedrifter = Bedrift::all();
+
+        $kategorier = Kategori::all();
+
+
+
+        return view ('bedrift.adminlist', compact('bedrifter', 'kategorier'));
+    }
+
+    public function delete($id) 
+    {
+        Ratings::where('bedriftid', $id)->delete();
+        Bedrift::where('id', $id)->delete();
+
+
+        return redirect()->back();
     }
 
 }
