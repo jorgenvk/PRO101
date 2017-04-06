@@ -11,6 +11,8 @@
 
 <!-- Midlertidig link til TwitterBootstrap - byttes ut med egen CSS etterhvert -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Link til jQuery Script for dynamisk oppdatering av adresse i kartet -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -22,6 +24,7 @@
       </div>
        
       <div class="row">
+
         <div class="col-lg-5">
             <h4>Informasjon - Ny bedrift</h4>
             <div class="input-group" style="width: 90%">
@@ -41,7 +44,7 @@
                         </select><br>
                         Telefonnummer: <input type="text" class="form-control" name="Telefon" id="Telefon" /><br>
                         Beskrivelse: <textarea rows="5" class="form-control" name="Beskrivelse" id="Beskrivelse"></textarea><br>
-                        Åpningstidqer: <input type="text" class="form-control" name="Åpningstider" id="Åpningstider" /><br>
+                        Åpningstider: <input type="text" class="form-control" name="Åpningstider" id="Åpningstider" /><br>
                         Nettside: <input type="text" class="form-control" name="Nettside" id="Nettside" /><br>
                         <input type="submit" class="btn btn-info pull-right" style="margin-top: 10px;" value="Registrer bedrift">
                       </form>
@@ -60,11 +63,14 @@
           </iframe>
         </div>         
       </div>
+
+    <!-- Håndterer feilmeldinger og OK status -->
+    @include ('layout.status-ok')
+    @include ('layout.status-error')      
         
     </div> <!-- /container -->
 
-<!-- Link til jQuery Script for dynamisk oppdatering av adresse i kartet -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Forsøk på dynamisk oppdatering av adresse i kartet -->
 <script  type="text/javascript">
 jQuery(
   function($)

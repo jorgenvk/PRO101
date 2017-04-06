@@ -47,6 +47,10 @@
     </div>
     </div>
 
+    @include ('layout.status-ok')
+
+    @include ('layout.status-error')
+
 
     <div class="row">
     <div class="col-md-12">
@@ -62,6 +66,7 @@
       </label>
     </form>
     </div>
+
 
     <div class="col-sm-2 bildeboks">
     </div>
