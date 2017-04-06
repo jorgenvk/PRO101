@@ -54,17 +54,17 @@ class BedriftController extends Controller
                 else
                     {
                         // Profilbildet ble IKKE lastet opp
-                        return "Feil ved opplasting av bilde til server :-(";
+                        return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");                        
                     }
             }
         else
             {
                 // Mangler bilde!
-                return "Men kjære deg... du må laste opp et bilde av bedriften din!";
+                return redirect()->back()->withInput()->withErrors("Du glemte å legge ved bilde. Det kan skje den beste. Prøv igjen!");
             }
 
-        //Tilbakemelding på at bedrift ble lagt til?
-		return redirect()->back();
+        // Alt OK
+		return redirect()->back()->with('status_ok', '<strong>Bedrift opprettet!</strong><br>Gratulerer. Ny bedrift er lagt til.!');
     }
 
 
