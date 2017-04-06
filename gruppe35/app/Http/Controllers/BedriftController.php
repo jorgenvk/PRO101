@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Bedrift;
 use App\Kategori;
 use App\Ratings;
+use App\Bilder;
 use Storage;
 
 class BedriftController extends Controller
@@ -106,9 +107,9 @@ class BedriftController extends Controller
 
     public function delete($id) 
     {
+        Bilder::where('Bedrift_id', $id)->delete();
         Ratings::where('bedriftid', $id)->delete();
         Bedrift::where('id', $id)->delete();
-
 
         return redirect()->back();
     }
