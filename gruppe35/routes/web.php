@@ -35,3 +35,5 @@ Route::get('bilder', function () {
     return view('bilder');
 });
 Route::post('bilder/upload', 'BildeController@upload');
+
+Route::get('rating/{id}', 'BedriftController@rating');

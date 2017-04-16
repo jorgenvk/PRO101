@@ -114,4 +114,9 @@ class BedriftController extends Controller
         return redirect()->back();
     }
 
+    public function rating($id){
+        $avgrating = Bedrift::find($id)->rating->AVG('score');
+        return $avgrating;
+    }
+
 }
