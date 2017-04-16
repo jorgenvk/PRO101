@@ -119,4 +119,13 @@ class BedriftController extends Controller
         return $avgrating;
     }
 
+    public function rate($id, $score){
+        Ratings::insert(
+            [
+                'bedriftid' => $id,
+                'score' => $score
+            ]
+        );
+    }
+
 }

@@ -37,3 +37,5 @@ Route::get('bilder', function () {
 Route::post('bilder/upload', 'BildeController@upload');
 
 Route::get('rating/{id}', 'BedriftController@rating');
+
+Route::get('rate/{id}/{score}', 'BedriftController@rate');
