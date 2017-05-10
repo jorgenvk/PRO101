@@ -14,6 +14,10 @@
 <link rel="stylesheet" href="/css/style.css" type="text/css" />
 <!-- Link til jQuery Script for dynamisk oppdatering av adresse i kartet -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Link til Boostrap JS for "lukking av dialogbokser" -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Link til datetimepicker for valg av start/slutt tidspunkts arrangement -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 @yield('header')
 </head>
 <body>
