@@ -11,18 +11,36 @@
 
 <!-- Midlertidig link til TwitterBootstrap - byttes ut med egen CSS etterhvert -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 </head>
-<body> 
+<body>
 
    <div class="container">
    		<div class="col-md-12">
    			<h1>Resultat</h1>
+        <div class="row">
+
             <a href="{{ url('bedrift/list') }}">Alle</a>
                      <?php foreach($kategorier as $kategori) { ?>
                            <a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}"><img src="{{ url('icons/'.$kategori->Kategori_navn.'.png') }}" width="50px">{{ $kategori->Kategori_navn }}</a>
-                     
+
                      <?php } ?>
-   			
+        </div>
+        <div class="row">
+
+                     @foreach($bedrifter as $bedrift)
+
+                       <div class="col-md-2 bedriftdiv">
+                         <img class="bedrift_thumbnail" src="{{ $bedrift->Bilde }}"/>
+                         <h2><a href="{{ url('bedrift/show/'.$bedrift->id) }}">{{ $bedrift->Bedrift_navn }}</a></h2>
+                         <p>{{ $bedrift->Beskrivelse }}</p>
+                         <p></p>
+                       </div>
+
+
+                     @endforeach
+          </div>
+        <!---
    			<table class="table">
 
    				<tr>
@@ -34,10 +52,11 @@
    					<th>Åpningstider</th>
    					<th>Nettside</th>
    				</tr>
+
                @foreach ($bedrifter as $bedrift)
-   				<tr>
+   			<tr>
                   <td>{{ $bedrift->kategori->Kategori_navn }}</td>
-   					<td><?= $bedrift['Bedrift_navn'] ?></td>
+   					<td><a href="{{ url('bedrift/show/'.$bedrift->id) }}"><?= $bedrift['Bedrift_navn'] ?></a></td>
    					<td><?= $bedrift['Adresse'] ?></td>
    					<td><?= $bedrift['Telefon'] ?></td>
    					<td><?= $bedrift['Beskrivelse'] ?></td>
@@ -47,10 +66,10 @@
    				</tr>
                @endforeach
    			</table>
-   			
+        --->
    		</div>
-        
-   </div> 
+
+   </div>
 
 </body>
 </html>

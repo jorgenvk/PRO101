@@ -20,7 +20,7 @@ class BedriftController extends Controller
     	return view ('bedrift.ny', compact('kategorier'));
     }
 
-    public function listBedrifter() 
+    public function listBedrifter()
     {
 
     	$bedrifter = Bedrift::all();
@@ -50,12 +50,12 @@ class BedriftController extends Controller
                         $bedrift->Nettside      = $request->Nettside;
                         $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
 
-                        $bedrift->save();                        
+                        $bedrift->save();
                     }
                 else
                     {
                         // Profilbildet ble IKKE lastet opp
-                        return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");                        
+                        return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");
                     }
             }
         else
@@ -68,9 +68,16 @@ class BedriftController extends Controller
 		return redirect()->back()->with('status_ok', '<strong>Bedrift opprettet!</strong><br>Gratulerer. Ny bedrift er lagt til.!');
     }
 
+    public function show($id)
+    {
+      $bedrift = Bedrift::find($id);
 
-    // Sorteringsfunksjon. sorterer på kategori 
-    public function sort($filter) 
+      return view('bedrift.show')->with('bedrift', $bedrift);
+    }
+
+
+    // Sorteringsfunksjon. sorterer på kategori
+    public function sort($filter)
     {
         if($filter == 'Uteliv') {
             $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
@@ -93,7 +100,7 @@ class BedriftController extends Controller
         return view ('bedrift.list', compact('bedrifter', 'kategorier'));
     }
 
-    public function admin() 
+    public function admin()
     {
 
         $bedrifter = Bedrift::all();
@@ -105,7 +112,7 @@ class BedriftController extends Controller
         return view ('bedrift.adminlist', compact('bedrifter', 'kategorier'));
     }
 
-    public function delete($id) 
+    public function delete($id)
     {
         Bilder::where('Bedrift_id', $id)->delete();
         Ratings::where('bedriftid', $id)->delete();

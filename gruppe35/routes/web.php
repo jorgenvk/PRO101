@@ -24,6 +24,8 @@ Route::get('bedrift/admin', 'BedriftController@admin');
 
 Route::get('bedrift/delete/{id}', 'BedriftController@delete');
 
+Route::get('bedrift/show/{id}', 'BedriftController@show');
+
 
 
 // ::::::: BEDRIFT URLer :::::::
