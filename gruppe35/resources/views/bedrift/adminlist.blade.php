@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
+@extends('layout.master')
 
-<title>Se resultat</title>
+@section('tittel', 'Admin')
 
-<!-- Midlertidig link til TwitterBootstrap - byttes ut med egen CSS etterhvert -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
-<body> 
-
-   <div class="container">
+@section('body')
    		<div class="col-md-12">
    			<h1>Resultat</h1>
             <a href="{{ url('bedrift/list') }}">Alle</a>
-                     <?php foreach($kategorier as $kategori) { ?>
+                        @foreach($kategorier as $kategori)
                            <a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}"><img src="{{ url('icons/'.$kategori->Kategori_navn.'.png') }}" width="50px">{{ $kategori->Kategori_navn }}</a>
-                     
-                     <?php } ?>
-   			
+                        @endforeach
+
+
    			<table class="table">
 
    				<tr>
-                  <th>Admin</th>
-                  <th>Kategori</th>
+            <th>Admin</th>
+            <th>Kategori</th>
    					<th>Bedriftens navn</th>
    					<th>Adresse</th>
    					<th>Tlf</th>
@@ -37,22 +25,18 @@
    				</tr>
                @foreach ($bedrifter as $bedrift)
    				<tr>
-                  <td><a href="{{ url('bedrift/delete/'.$bedrift->id) }}">Slett</a></td>
-                  <td>{{ $bedrift->kategori->Kategori_navn }}</td>
-   					<td><?= $bedrift['Bedrift_navn'] ?></td>
-   					<td><?= $bedrift['Adresse'] ?></td>
-   					<td><?= $bedrift['Telefon'] ?></td>
-   					<td><?= $bedrift['Beskrivelse'] ?></td>
-   					<td><?= $bedrift['Åpningstider'] ?></td>
-   					<td><?= $bedrift['Nettside'] ?></td>
-                  <td><?= $bedrift['Bilde'] ?></td>
+            <td><a href="{{ url('bedrift/delete/'.$bedrift->id) }}">Slett</a></td>
+            <td>{{ $bedrift->kategori->Kategori_navn }}</td>
+   					<td>{{ $bedrift->Bedrift_navn }}</td>
+   					<td>{{ $bedrift->Adresse }}</td>
+   					<td>{{ $bedrift->Telefon }}</td>
+   					<td>{{ $bedrift->Beskrivelse }}</td>
+   					<td>{{ $bedrift->Åpningstider }}</td>
+   					<td>{{ $bedrift->Nettside }}</td>
+            <td>{{ $bedrift->Bilde }}</td>
    				</tr>
                @endforeach
    			</table>
-   			
-   		</div>
-        
-   </div> 
 
-</body>
-</html>
+   		</div>
+@endsection
