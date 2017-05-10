@@ -115,7 +115,7 @@ class BedriftController extends Controller
     }
 
     public function rating($id){
-        $avgrating = Ratings::where('bedriftid', $id)->get()->AVG('score');
+        $avgrating = Ratings::where('bedriftid', $id)->get()->AVG('score'); //test
 
         return $avgrating;
     }
