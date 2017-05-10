@@ -14,4 +14,9 @@ class Bedrift extends Model
     	return $this->hasOne('App\Kategori', 'id', 'Kategori_id');
     }
 
+    public function bilder()
+    {
+    	return $this->hasMany('App\Bilde', 'bedrift_id', 'id');
+    }
+
 }

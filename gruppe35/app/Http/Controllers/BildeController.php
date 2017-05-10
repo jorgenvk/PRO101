@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Bilde;
+use App\Bedrift;
 use Storage;
 
 class BildeController extends Controller
@@ -12,12 +14,30 @@ class BildeController extends Controller
     	if ($request->hasFile('fil'))
     		{
     			if ($s3upload = Storage::disk('s3')->putFile('', $request->file('fil'), 'public'))
-    				{return "Filen er lastet opp i skyen med filnavn ".$s3upload.'!';}
+    				{
+                        $bilde = New Bilde;
+                        $bilde->bilde = $s3upload;
+                        $bilde->Bedrift_id = $request->Bedrift_id;
+                        $bilde->save();
+
+                        return redirect()->back()->with('status_ok', '<strong>Bilde lastet opp!</strong><br>Gratulerer - bildet ditt fra bedriften er nå på nettet! :)');
+                    }
     			else
-    				{return "FEIL ved opplasting av fil.";}
+    				{return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");}
     		}
     	else
-    		{return "Ingenting?!";}
+    		{return redirect()->back()->withInput()->withErrors("Feil ved opplasting: finner ingen vedlagt fil!");}
+    }
+
+    public function makeThumbnail()
+    {
+        // lager thumbnail av opplastet bilde
+    }
+
+    public function test()
+    {
+        $bedrift = Bedrift::find(6);
+        return view('bilder', compact('bedrift'));
     }
 
 }

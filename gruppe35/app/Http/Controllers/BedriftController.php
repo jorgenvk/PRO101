@@ -12,7 +12,7 @@ use Storage;
 class BedriftController extends Controller
 {
 
-    public function pageLeggTilBedrift()
+    public function pageNyBedrift()
     {
     	// Henter alle kategorier;
     	$kategorier = Kategori::all();
