@@ -57,6 +57,10 @@ $(document).ready(function(){
     $('#Adresse').on('change', function() {
       var bed_navn = $('#Navn').val()
       var bed_adr = $('#Adresse').val()
+      if (bed_adr == "" || bed_adr.length < 2 || bed_adr == null)
+        {
+           bed_adr = "Oslo"
+        }
       var q = bed_navn + ', ' + bed_adr;
       $('#kartNyBedrift').attr('src','https://www.google.com/maps/embed/v1/search?key=AIzaSyDywUZI16jpELxuAZ6VFnNtaGyElz-DQ-k&q='+q);
     });
