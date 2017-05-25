@@ -3,6 +3,13 @@
 @section('tittel', 'Bedrifter')
 
 @section('body')
+  <div class="row">
+    <form method="POST" action="{{ url('bedrift/list/search') }}" name="search" id="search">
+      {{ csrf_field() }}
+      <input type="text" name="keyword" id="keyword" class="form-control"/>
+      <input type="submit" value="search" class="form-control"/>
+    </form>
+  </div>
         <div class="row">
           <div class="col-md-8 col-md-offset-3 kategorier">
 

@@ -100,6 +100,22 @@ class BedriftController extends Controller
         return view ('bedrift.list', compact('bedrifter', 'kategorier'));
     }
 
+    public function search(Request $request)
+    {
+      dd($request);
+          $kategorier = Kategori::all();
+
+            $keyword = $request->keyword;
+
+            $bedrifter = Bedrift::where('Bedrift_navn', 'LIKE', '%'.$keyword.'%')
+           ->orWhere('Adresse', 'LIKE', '%'.$keyword.'%')
+           ->orWhere('Beskrivelse', 'LIKE', '%'.$keyword.'%')
+           ->get();
+
+
+         return view('bedrift.list', compact('bedrifter', 'kategorier'));
+    }
+
     public function admin()
     {
 

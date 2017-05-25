@@ -20,6 +20,8 @@ Route::get('bedrift/list', 'BedriftController@listBedrifter');
 
 Route::get('bedrift/list/{filter}', 'BedriftController@sort');
 
+Route::post('bedrift/list/search', 'BedriftController@search');
+
 Route::get('bedrift/admin', 'BedriftController@admin');
 
 Route::get('bedrift/delete/{id}', 'BedriftController@delete');
