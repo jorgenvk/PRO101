@@ -4,7 +4,7 @@
 
 @section('body')
   <div class="row">
-    <form method="POST" action="{{ url('bedrift/list/search') }}" name="search" id="search">
+    <form method="POST" action="{{ url('bedrift/search') }}" name="search" id="search">
       {{ csrf_field() }}
       <input type="text" name="keyword" id="keyword" class="form-control"/>
       <input type="submit" value="search" class="form-control"/>

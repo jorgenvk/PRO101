@@ -102,7 +102,7 @@ class BedriftController extends Controller
 
     public function search(Request $request)
     {
-      dd($request);
+
           $kategorier = Kategori::all();
 
             $keyword = $request->keyword;
