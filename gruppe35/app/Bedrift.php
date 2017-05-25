@@ -19,4 +19,9 @@ class Bedrift extends Model
     	return $this->hasMany('App\Bilde', 'bedrift_id', 'id');
     }
 
+    public function kommentarer()
+    {
+      return $this->hasMany('App\Kommentar');
+    }
+
 }

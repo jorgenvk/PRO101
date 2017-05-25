@@ -28,6 +28,8 @@ Route::get('bedrift/delete/{id}', 'BedriftController@delete');
 
 Route::get('bedrift/show/{id}', 'BedriftController@show');
 
+Route::post('kommentarer/{bedrift_id}', 'KommentarController@lagre');
+
 
 
 // ::::::: BEDRIFT URLer :::::::

@@ -67,6 +67,45 @@
 
       </div>
   </div><!-- ..row -->
+<div class="row">
+  <div id="kommentarskjema" class="col-md-8 col-md-offset-2">
+    <form method="POST" action="{{ url('kommentarer', $bedrift->id) }}">
+      {{ csrf_field() }}
+
+      <div class="row">
+        <div class="col-md-6">
+          <label name="navn">Name:</label>
+          <input type="text" name="navn" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label name="epost">Epost:</label>
+          <input type="text" name="epost" class="form-control" />
+        </div>
+        <div class="col-md-12">
+          <label name="kommentar">Kommentar:</label>
+          <textarea name="kommentar" class="form-control"></textarea>
+
+          <input type="submit" value="Legg til kommentar" class="btn btn-success btn-block" />
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+<div class="row">
+
+<div class="col-md-8 col-md-offset-2">
+  <h1>Kommentarer</h1>
+  @foreach($bedrift->kommentarer as $kommentar)
+    <div class="comment">
+      <p><b>Navn:</b> {{ $kommentar->navn }}</p>
+      <p>Epost: {{ $kommentar->epost }}</p>
+      <p><b>Kommentar:</b> <br />{{ $kommentar->kommentar }}</p><br /><br />
+    </div>
+  @endforeach
+</div>
+</div>
 
 
   <script>

@@ -103,15 +103,19 @@ class BedriftController extends Controller
     public function search(Request $request)
     {
 
-          $kategorier = Kategori::all();
+            $kategorier = Kategori::all();
 
             $keyword = $request->keyword;
 
+            if($keyword != '') {
             $bedrifter = Bedrift::where('Bedrift_navn', 'LIKE', '%'.$keyword.'%')
            ->orWhere('Adresse', 'LIKE', '%'.$keyword.'%')
            ->orWhere('Beskrivelse', 'LIKE', '%'.$keyword.'%')
+           ->orWhere('Telefon', 'LIKE', '%'.$keyword.'%')
+           ->orWhere('Nettside', 'LIKE', '%'.$keyword.'%')
            ->get();
-
+         }
+            else $bedrifter = Bedrift::all();
 
          return view('bedrift.list', compact('bedrifter', 'kategorier'));
     }
