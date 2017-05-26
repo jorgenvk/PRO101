@@ -163,12 +163,17 @@ class BedriftController extends Controller
 
         $distance[0] = 0;
         $distance[1] = 0;
+        $distance[2] = 0;
+        $distance[3] = 0;
+
 
         foreach($data->rows[0]->elements as $road) {
             $distance[0] += $road->distance->value;
+            $distance[1] += $road->duration->value/60;
         }
         foreach($data->rows[1]->elements as $road) {
-            $distance[1] += $road->distance->value;
+            $distance[2] += $road->distance->value;
+            $distance[3] += $road->duration->value/60;
         }
 
         return $distance;

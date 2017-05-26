@@ -28,7 +28,8 @@
               <td>{{ $bedrift->Telefon }}</td>
               <td>{{ $bedrift->Åpningstider }}</td>
               <td><a href="http://{{ $bedrift->Nettside }}">{{ $bedrift->Nettside }}</a></td>
-              <td>{{$avstand[0]}}m fra Campus Fjerdingen<br>{{$avstand[1]}}m fra Campus Vulkan</td>
+              <td>{{$avstand[0]}}m / {{round($avstand[1])}} min fra Fjerdingen
+                <br>{{$avstand[2]}}m / {{round($avstand[3])}} min fra Vulkan</td>
             </tr>
           </tbody>
         </table>
