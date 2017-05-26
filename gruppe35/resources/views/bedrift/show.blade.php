@@ -17,7 +17,7 @@
   <div class="row">
         <h1 class="text-center"> {{ $bedrift->Bedrift_navn }}</h1>
         <div class="col-md-6">
-            <img src="{{ $bedrift->Bilde }}" class="bedriftbilde"/>
+            <img onclick="onClick(this)" src="{{ $bedrift->Bilde }}" class="bedriftbilde"/>
         </div>
         <div class="col-md-6 info-text">
           <ul>
@@ -26,7 +26,8 @@
             <li>Telefon: {{ $bedrift->Telefon }}</li>
             <li>Åpningstider: {{ $bedrift->Åpningstider }}</li>
             <li>Nettside: {{ $bedrift->Nettside }}</li>
-            <li>{{$avstand}}m fra Fjerdingen</li>
+            <li>{{$avstand[0]}}m / {{round($avstand[1])}} min fra Fjerdingen</li>
+            <li>{{$avstand[2]}}m / {{round($avstand[3])}} min fra Vulkan</li>
           </ul>
         </div>
   <div class="row">
@@ -47,7 +48,7 @@
 
       @foreach ($bedrift->bilder()->orderBy('created_at', 'desc')->get() as $bilde)
           <div class="col-sm-2 bildeboks">
-            <img id="myImg" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">
+            <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">
           </div>
       @endforeach
 
@@ -118,23 +119,19 @@
     });
   </script>
   <script>
-  // Get the modal
+
   var modal = document.getElementById('myModal');
 
-  // Get the image and insert it inside the modal - use its "alt" text as a caption
-  var img = document.getElementById('myImg');
   var modalImg = document.getElementById("img01");
-  var captionText = document.getElementById("caption");
-  img.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-  }
 
-  // Get the <span> element that closes the modal
+  function onClick(element) {
+  modalImg.src = element.src;
+  modalImg.style.display = "block";
+  modal.style.display = "block";
+}
+
   var span = document.getElementsByClassName("close")[0];
 
-  // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
     modal.style.display = "none";
   }
