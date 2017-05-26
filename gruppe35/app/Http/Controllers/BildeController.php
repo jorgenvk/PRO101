@@ -29,15 +29,4 @@ class BildeController extends Controller
     		{return redirect()->back()->withInput()->withErrors("Feil ved opplasting: finner ingen vedlagt fil!");}
     }
 
-    public function makeThumbnail()
-    {
-        // lager thumbnail av opplastet bilde
-    }
-
-    public function test()
-    {
-        $bedrift = Bedrift::find(6);
-        return view('bilder', compact('bedrift'));
-    }
-
 }

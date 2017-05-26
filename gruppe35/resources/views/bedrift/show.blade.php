@@ -47,7 +47,7 @@
 
       @foreach ($bedrift->bilder()->orderBy('created_at', 'desc')->get() as $bilde)
           <div class="col-sm-2 bildeboks">
-            <img id="img-{{ $bilde->id }}" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">
+            <img id="myImg" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">
           </div>
       @endforeach
 
@@ -122,7 +122,7 @@
   var modal = document.getElementById('myModal');
 
   // Get the image and insert it inside the modal - use its "alt" text as a caption
-  var img = document.getElementById('img');
+  var img = document.getElementById('myImg');
   var modalImg = document.getElementById("img01");
   var captionText = document.getElementById("caption");
   img.onclick = function(){

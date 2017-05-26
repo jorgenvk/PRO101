@@ -7,6 +7,7 @@ use App\Bedrift;
 use App\Kategori;
 use App\Ratings;
 use App\Bilder;
+use Validator;
 use Storage;
 
 class BedriftController extends Controller
@@ -34,28 +35,41 @@ class BedriftController extends Controller
 
     public function postNyBedrift(Request $request)
     {
-    	// TO-DO legge til Validator, sørge for at form-data er gyldig, osv.
         if ($request->hasFile('fil'))
             {
-                if ($s3upload = Storage::disk('s3')->putFile('', $request->file('fil'), 'public'))
+            $validator = Validator::make($request->input(),
+                        [
+                            'Bedrift_navn'                    => 'required:max:250',
+                            'Adresse'                         => 'required:max:250'
+                        ],
+                        [
+                            'Bedrift_navn.required'     => 'Bedriften må ha et navn!',
+                            'Adresse.required'          => 'Bedriften må ha en adresse!',
+                            'Bedrift_navn.max'          => 'Bedriftsnavnet er for langt!',
+                            'Adresse.max'               => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
+                        ]);
+                if($validator->passes())
                     {
-                        // Profilbildet *ble* laset opp, opprett bedrift;
-                        $bedrift = New Bedrift;
-                        $bedrift->Bedrift_navn  = $request->Navn;
-                        $bedrift->Kategori_id   = $request->Kategori;
-                        $bedrift->Adresse       = $request->Adresse;
-                        $bedrift->Telefon       = $request->Telefon;
-                        $bedrift->Beskrivelse   = $request->Beskrivelse;
-                        $bedrift->Åpningstider  = $request->Åpningstider;
-                        $bedrift->Nettside      = $request->Nettside;
-                        $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
+                        if ($s3upload = Storage::disk('s3')->putFile('', $request->file('fil'), 'public'))
+                            {
+                                // Profilbildet *ble* laset opp, opprett bedrift;
+                                $bedrift = New Bedrift;
+                                $bedrift->Bedrift_navn  = $request->Navn;
+                                $bedrift->Kategori_id   = $request->Kategori;
+                                $bedrift->Adresse       = $request->Adresse;
+                                $bedrift->Telefon       = $request->Telefon;
+                                $bedrift->Beskrivelse   = $request->Beskrivelse;
+                                $bedrift->Åpningstider  = $request->Åpningstider;
+                                $bedrift->Nettside      = $request->Nettside;
+                                $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
 
-                        $bedrift->save();
-                    }
-                else
-                    {
-                        // Profilbildet ble IKKE lastet opp
-                        return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");
+                                $bedrift->save();
+                            }
+                        else
+                            {
+                                // Profilbildet ble IKKE lastet opp
+                                return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");
+                            }
                     }
             }
         else
@@ -65,7 +79,7 @@ class BedriftController extends Controller
             }
 
         // Alt OK
-		return redirect()->back()->with('status_ok', '<strong>Bedrift opprettet!</strong><br>Gratulerer. Ny bedrift er lagt til.!');
+		return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er opprettet</strong><br>Du har lagt til en ny bedrift.');
     }
 
     public function show($id)
@@ -144,13 +158,22 @@ class BedriftController extends Controller
     public function avstand($bedrift, $adresse){
         $bedrift = urlencode($bedrift);
         $adresse = urlencode($adresse);
-        $data = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?origins=Campus+Fjerdingen+Oslo&destinations={{$bedrift}}+{{$adresse}}&mode=walking&language=no-NO&key=AIzaSyAYR9gvYoViYikV9EGw2BAPYzf0CxqBRbU");
+        $data = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?origins=Campus+Fjerdingen|Campus+Vulkan&destinations={{$bedrift}}+{{$adresse}}&mode=walking&language=no-NO&key=AIzaSyAYR9gvYoViYikV9EGw2BAPYzf0CxqBRbU");
         $data = json_decode($data);
 
-        $distance = 0;
+        $distance[0] = 0;
+        $distance[1] = 0;
+        $distance[2] = 0;
+        $distance[3] = 0;
+
 
         foreach($data->rows[0]->elements as $road) {
-            $distance += $road->distance->value;
+            $distance[0] += $road->distance->value;
+            $distance[1] += $road->duration->value/60;
+        }
+        foreach($data->rows[1]->elements as $road) {
+            $distance[2] += $road->distance->value;
+            $distance[3] += $road->duration->value/60;
         }
 
         return $distance;
