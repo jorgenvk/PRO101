@@ -71,8 +71,9 @@ class BedriftController extends Controller
     public function show($id)
     {
       $bedrift = Bedrift::find($id);
+      $avstand = self::avstand($bedrift->Bedrift_navn, $bedrift->Adresse);
 
-      return view('bedrift.show')->with('bedrift', $bedrift);
+      return view('bedrift.show', compact('bedrift', 'avstand'));
     }
 
 
@@ -139,6 +140,20 @@ class BedriftController extends Controller
         Bedrift::where('id', $id)->delete();
 
         return redirect()->back();
+    }
+    public function avstand($bedrift, $adresse){
+        $bedrift = urlencode($bedrift);
+        $adresse = urlencode($adresse);
+        $data = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?origins=Campus+Fjerdingen+Oslo&destinations={{$bedrift}}+{{$adresse}}&mode=walking&language=no-NO&key=AIzaSyAYR9gvYoViYikV9EGw2BAPYzf0CxqBRbU");
+        $data = json_decode($data);
+
+        $distance = 0;
+
+        foreach($data->rows[0]->elements as $road) {
+            $distance += $road->distance->value;
+        }
+
+        return $distance;
     }
 
     public function rating($id){
