@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'BedriftController@listBedrifter');
+Route::get('/', 'Controller@forside');
 
 
 Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
@@ -42,4 +42,3 @@ Route::get('bedrift/avstand/{bedrift}/{adresse}', 'BedriftController@avstand');
 
 Route::get('rating/{id}', 'BedriftController@rating');
 Route::get('rate/{id}/{score}', 'BedriftController@rate');
-
