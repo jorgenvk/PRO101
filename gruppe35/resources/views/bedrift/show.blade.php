@@ -18,6 +18,7 @@
             <th>Telefon:</th>
             <th>Åpningstider:</th>
             <th>Nettside:</th>
+            <th>Avstand:</th>
           </tr>
           </thead>
           <tbody>
@@ -27,6 +28,7 @@
               <td>{{ $bedrift->Telefon }}</td>
               <td>{{ $bedrift->Åpningstider }}</td>
               <td><a href="http://{{ $bedrift->Nettside }}">{{ $bedrift->Nettside }}</a></td>
+              <td>{{$avstand}}m fra Fjerdingen</td>
             </tr>
           </tbody>
         </table>
