@@ -30,18 +30,13 @@ Route::get('bedrift/show/{id}', 'BedriftController@show');
 
 Route::post('kommentarer/{bedrift_id}', 'KommentarController@lagre');
 
-
-
-// ::::::: BEDRIFT URLer :::::::
 Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');
 Route::post('bedrift/lagre', 'BedriftController@postNyBedrift');
 
-// ::::::: TEST/midlertidige URLer :::::::
-Route::get('bilder', function () {
-    return view('bilder');
-});
+Route::get('arrangement/ny', 'ArrangementController@pageNyttArrangement');
+Route::post('arrangement/lagre', 'ArrangementController@lagre');
+
 Route::post('bilder/upload', 'BildeController@upload');
 
 Route::get('rating/{id}', 'BedriftController@rating');
-
 Route::get('rate/{id}/{score}', 'BedriftController@rate');
