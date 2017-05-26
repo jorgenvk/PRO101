@@ -62,7 +62,7 @@ class ArrangementController extends Controller
         else
             {
                 return redirect()->back()->withInput()->withErrors($validator);
-             }      
+             }
         }
         else
         {

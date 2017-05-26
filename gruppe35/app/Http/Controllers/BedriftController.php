@@ -7,6 +7,7 @@ use App\Bedrift;
 use App\Kategori;
 use App\Ratings;
 use App\Bilder;
+use Validator;
 use Storage;
 
 class BedriftController extends Controller
@@ -34,28 +35,41 @@ class BedriftController extends Controller
 
     public function postNyBedrift(Request $request)
     {
-    	// TO-DO legge til Validator, sørge for at form-data er gyldig, osv.
         if ($request->hasFile('fil'))
             {
-                if ($s3upload = Storage::disk('s3')->putFile('', $request->file('fil'), 'public'))
+            $validator = Validator::make($request->input(),
+                        [
+                            'Bedrift_navn'                    => 'required:max:250',
+                            'Adresse'                         => 'required:max:250'
+                        ],
+                        [
+                            'Bedrift_navn.required'     => 'Bedriften må ha et navn!',
+                            'Adresse.required'          => 'Bedriften må ha en adresse!',
+                            'Bedrift_navn.max'          => 'Bedriftsnavnet er for langt!',
+                            'Adresse.max'               => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
+                        ]);
+                if($validator->passes())
                     {
-                        // Profilbildet *ble* laset opp, opprett bedrift;
-                        $bedrift = New Bedrift;
-                        $bedrift->Bedrift_navn  = $request->Navn;
-                        $bedrift->Kategori_id   = $request->Kategori;
-                        $bedrift->Adresse       = $request->Adresse;
-                        $bedrift->Telefon       = $request->Telefon;
-                        $bedrift->Beskrivelse   = $request->Beskrivelse;
-                        $bedrift->Åpningstider  = $request->Åpningstider;
-                        $bedrift->Nettside      = $request->Nettside;
-                        $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
+                        if ($s3upload = Storage::disk('s3')->putFile('', $request->file('fil'), 'public'))
+                            {
+                                // Profilbildet *ble* laset opp, opprett bedrift;
+                                $bedrift = New Bedrift;
+                                $bedrift->Bedrift_navn  = $request->Navn;
+                                $bedrift->Kategori_id   = $request->Kategori;
+                                $bedrift->Adresse       = $request->Adresse;
+                                $bedrift->Telefon       = $request->Telefon;
+                                $bedrift->Beskrivelse   = $request->Beskrivelse;
+                                $bedrift->Åpningstider  = $request->Åpningstider;
+                                $bedrift->Nettside      = $request->Nettside;
+                                $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
 
-                        $bedrift->save();
-                    }
-                else
-                    {
-                        // Profilbildet ble IKKE lastet opp
-                        return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");
+                                $bedrift->save();
+                            }
+                        else
+                            {
+                                // Profilbildet ble IKKE lastet opp
+                                return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");
+                            }
                     }
             }
         else
@@ -65,7 +79,7 @@ class BedriftController extends Controller
             }
 
         // Alt OK
-		return redirect()->back()->with('status_ok', '<strong>Bedrift opprettet!</strong><br>Gratulerer. Ny bedrift er lagt til.!');
+		return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er opprettet</strong><br>Du har lagt til en ny bedrift.');
     }
 
     public function show($id)
