@@ -31,8 +31,6 @@
                          <p>{{ substr($bedrift->Beskrivelse, 0, 100) }}{{ strlen($bedrift->Beskrivelse) > 100 ? "..." : "" }}</p>
                          <p></p>
                        </div>
-
-
                      @endforeach
           </div>
           </div>
