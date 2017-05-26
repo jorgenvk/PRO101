@@ -144,13 +144,17 @@ class BedriftController extends Controller
     public function avstand($bedrift, $adresse){
         $bedrift = urlencode($bedrift);
         $adresse = urlencode($adresse);
-        $data = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?origins=Campus+Fjerdingen+Oslo&destinations={{$bedrift}}+{{$adresse}}&mode=walking&language=no-NO&key=AIzaSyAYR9gvYoViYikV9EGw2BAPYzf0CxqBRbU");
+        $data = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?origins=Campus+Fjerdingen|Campus+Vulkan&destinations={{$bedrift}}+{{$adresse}}&mode=walking&language=no-NO&key=AIzaSyAYR9gvYoViYikV9EGw2BAPYzf0CxqBRbU");
         $data = json_decode($data);
 
-        $distance = 0;
+        $distance[0] = 0;
+        $distance[1] = 0;
 
         foreach($data->rows[0]->elements as $road) {
-            $distance += $road->distance->value;
+            $distance[0] += $road->distance->value;
+        }
+        foreach($data->rows[1]->elements as $road) {
+            $distance[1] += $road->distance->value;
         }
 
         return $distance;
