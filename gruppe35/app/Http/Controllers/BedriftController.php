@@ -39,14 +39,14 @@ class BedriftController extends Controller
             {
             $validator = Validator::make($request->input(),
                         [
-                            'Bedrift_navn'                    => 'required:max:250',
-                            'Adresse'                         => 'required:max:250'
+                            'Navn'              => 'required:max:250',
+                            'Adresse'           => 'required:max:250'
                         ],
                         [
-                            'Bedrift_navn.required'     => 'Bedriften må ha et navn!',
-                            'Adresse.required'          => 'Bedriften må ha en adresse!',
-                            'Bedrift_navn.max'          => 'Bedriftsnavnet er for langt!',
-                            'Adresse.max'               => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
+                            'Navn.required'     => 'Bedriften må ha et navn!',
+                            'Adresse.required'  => 'Bedriften må ha en adresse!',
+                            'Navn.max'          => 'Bedriftsnavnet er for langt!',
+                            'Adresse.max'       => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
                         ]);
                 if($validator->passes())
                     {
@@ -62,6 +62,14 @@ class BedriftController extends Controller
                                 $bedrift->Åpningstider  = $request->Åpningstider;
                                 $bedrift->Nettside      = $request->Nettside;
                                 $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
+
+                                $avstand = self::avstand($request->Navn, $request->Adresse);
+                                $bedrift->Avstand_fjerdingen = $avstand[0]; // Avstand Fjerdingen i meter
+                                $bedrift->Avstand_vulkan = $avstand[2]; // Avstand Vulkan i meter
+                                $bedrift->Minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
+                                $bedrift->Minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
+
+                                $bedrift->rating = self::rating($request->Navn, $request->Adresse); // Google rating                   
 
                                 $bedrift->save();
                             }
@@ -79,8 +87,9 @@ class BedriftController extends Controller
             }
 
         // Alt OK
-		return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er opprettet</strong><br>Du har lagt til en ny bedrift.');
+        return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er opprettet</strong><br>Du har lagt til en ny bedrift.');
     }
+
 
     public function show($id)
     {
