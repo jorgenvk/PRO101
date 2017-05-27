@@ -117,12 +117,12 @@ class BedriftController extends Controller
             $bedrifter = Bedrift::where('Kategori_id', '=', '9')->get();
         }
         else if($filter == 'Spisesteder') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '10')
+            $bedrifter = Bedrift::where('Kategori_id', '=', '10')->get();
         }
         else if($filter == 'Kollektiv') {
             $bedrifter = Bedrift::where('Kategori_id', '=', '11')->get();
         }
-        
+
         $kategorier = Kategori::all();
 
         return view ('bedrift.list', compact('bedrifter', 'kategorier'));
