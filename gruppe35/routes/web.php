@@ -40,5 +40,4 @@ Route::post('bilder/upload', 'BildeController@upload');
 
 Route::get('bedrift/avstand/{bedrift}/{adresse}', 'BedriftController@avstand');
 
-Route::get('rating/{id}', 'BedriftController@rating');
-Route::get('rate/{id}/{score}', 'BedriftController@rate');
+Route::get('bedrift/rating/{bedrift}/{adresse}', 'BedriftController@rating');

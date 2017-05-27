@@ -86,8 +86,9 @@ class BedriftController extends Controller
     {
       $bedrift = Bedrift::find($id);
       $avstand = self::avstand($bedrift->Bedrift_navn, $bedrift->Adresse);
+      $rating = self::rating($bedrift->Bedrift_navn, $bedrift->Adresse);
 
-      return view('bedrift.show', compact('bedrift', 'avstand'));
+      return view('bedrift.show', compact('bedrift', 'avstand', 'rating'));
     }
 
 
@@ -179,19 +180,22 @@ class BedriftController extends Controller
         return $distance;
     }
 
-    public function rating($id){
-        $avgrating = Ratings::where('bedriftid', $id)->get()->AVG('score'); //test
+    public function rating($bedrift, $adresse){
 
-        return $avgrating;
-    }
+        $bedrift = urlencode($bedrift);
+        $adresse = urlencode($adresse);
+        $data = file_get_contents("https://maps.googleapis.com/maps/api/place/textsearch/json?query={{$bedrift}}+{{$adresse}}&key=AIzaSyAYR9gvYoViYikV9EGw2BAPYzf0CxqBRbU");
+        $data = json_decode($data);
 
-    public function rate($id, $score){
-        Ratings::insert(
-            [
-                'bedriftid' => $id,
-                'score' => $score
-            ]
-        );
+        $rating = 0.0;
+
+        foreach($data->results as $place) {
+            if($rating <= 0) {
+                $rating += $place->rating;
+            }
+            }
+
+        return $rating;
     }
 
 }

@@ -33,9 +33,11 @@
             <li><img src="{{ url('icons/Søke_Ikon1.png') }}" class="listeikoner" />
               Nettside: {{ $bedrift->Nettside }}</li>
             <li><img src="{{ url('icons/Campus_Ikon.png') }}" class="listeikoner" />
-              {{$avstand[0]}}m / {{round($avstand[1])}} min fra Campus Fjerdingen</li>
+              {{$avstand[0]}}m / {{(round($avstand[1]))}} min fra Campus Fjerdingen</li>
             <li><img src="{{ url('icons/Campus_Ikon.png') }}" class="listeikoner" />
-              {{$avstand[2]}}m / {{round($avstand[3])}} min fra Campus Vulkan</li>
+              {{$avstand[2]}}m / {{(round($avstand[3]))}} min fra Campus Vulkan</li>
+              <li><img src="{{ url('icons/Info_Ikon.png') }}" class="listeikoner" />
+                  Anmeldelser: {{$rating}}/5</li>
           </ul>
           <div class="col-md-12 bildeopplastning">
             <h3>Last opp ditt eget bilde fra {{ $bedrift->Bedrift_navn }} her!</h3>
@@ -117,7 +119,6 @@
 </div>
 </div>
 </div>
-
 
 
   <script>
