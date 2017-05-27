@@ -18,48 +18,63 @@
         <h1 class="text-center"> {{ $bedrift->Bedrift_navn }}</h1>
         <div class="col-md-6">
             <img onclick="onClick(this)" src="{{ $bedrift->Bilde }}" class="bedriftbilde"/>
+            <p>{{ $bedrift->Beskrivelse }}</p>
         </div>
         <div class="col-md-6 info-text">
           <ul>
-            <li>Kategori: {{ $bedrift->kategori->Kategori_navn }}</li>
-            <li>Adresse: {{ $bedrift->Adresse }}</li>
-            <li>Telefon: {{ $bedrift->Telefon }}</li>
-            <li>Åpningstider: {{ $bedrift->Åpningstider }}</li>
-            <li>Nettside: {{ $bedrift->Nettside }}</li>
-            <li>{{$avstand[0]}}m / {{round($avstand[1])}} min fra Fjerdingen</li>
-            <li>{{$avstand[2]}}m / {{round($avstand[3])}} min fra Vulkan</li>
+            <li><img src="{{ url('icons/'.$bedrift->kategori->Kategori_navn.'.png') }}" class="listeikoner" />
+              Kategori: {{ $bedrift->kategori->Kategori_navn }}</li>
+            <li><img src="{{ url('icons/Kart_Ikon3.png') }}" class="listeikoner" />
+              Adresse: {{ $bedrift->Adresse }}</li>
+            <li><img src="{{ url('icons/Info_Ikon.png') }}" class="listeikoner" />
+              Telefon: {{ $bedrift->Telefon }}</li>
+            <li><img src="{{ url('icons/Info_Ikon.png') }}" class="listeikoner" />
+              Åpningstider: {{ $bedrift->Åpningstider }}</li>
+            <li><img src="{{ url('icons/Info_Ikon.png') }}" class="listeikoner" />
+              Nettside: {{ $bedrift->Nettside }}</li>
+            <li><img src="{{ url('icons/Kart_Ikon3.png') }}" class="listeikoner" />
+              {{$avstand[0]}}m / {{round($avstand[1])}} min fra Fjerdingen</li>
+            <li><img src="{{ url('icons/Kart_Ikon3.png') }}" class="listeikoner" />
+              {{$avstand[2]}}m / {{round($avstand[3])}} min fra Vulkan</li>
           </ul>
+          <div class="col-md-12 bildeopplastning">
+            <h3>Last opp ditt eget bilde fra {{ $bedrift->Bedrift_navn }} her!</h3>
+            <hr>
+            <div class="col-sm-2 lastoppboks">
+
+            <form action="{{ url('bilder/upload') }}" method="POST" enctype="multipart/form-data" name="formBilderUpload" id="formBilderUpload">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <input type="hidden" name="Bedrift_id" value="{{ $bedrift->id }}">
+              <input id="fil" name="fil" type="file" style="display: none;"/>
+              <label for="fil">
+              <img src="{{ url('icons/Kamera_Ikon.png') }}" class="kamera-ikon" />
+              </label>
+
+            </form>
+            </div>
+
+
+            @foreach ($bedrift->bilder()->orderBy('created_at', 'desc')->get() as $bilde)
+                <div class="col-sm-2 bildeboks">
+                  <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="liten-thumbnail">
+                </div>
+            @endforeach
+
+            <div id="popup-vindu" class="bilde-ramme">
+              <span class="close" onclick="document.getElementById('popup-vindu').style.display='none'">&times;</span>
+              <img class="bilde" id="stort-bilde">
+            </div>
+
+        </div>
         </div>
   <div class="row">
-    <div class="col-md-12 bildeopplastning">
-      <h1>Last opp ditt eget bilde her!</h1>
-      <hr>
-      <div class="col-sm-2 lastoppboks">
-
-      <form action="{{ url('bilder/upload') }}" method="POST" enctype="multipart/form-data" name="formBilderUpload" id="formBilderUpload">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="Bedrift_id" value="{{ $bedrift->id }}">
-        <label class="btn btn-info pull-right" for="fil" style="margin-left: 10px;">
-        <input id="fil" name="fil" type="file" style="display: none;"/>
-        <span class="glyphicon glyphicon-camera"></span>
-        </label>
-      </form>
-      </div>
-
-      @foreach ($bedrift->bilder()->orderBy('created_at', 'desc')->get() as $bilde)
-          <div class="col-sm-2 bildeboks">
-            <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="liten-thumbnail">
-          </div>
-      @endforeach
-
-      <div id="popup-vindu" class="bilde-ramme">
-        <span class="close" onclick="document.getElementById('popup-vindu').style.display='none'">&times;</span>
-        <img class="bilde" id="stort-bilde">
-      </div>
-
-  </div><!-- ..row -->
+<!-- ..row -->
+</div>
+</div>
+</div>
 <div class="row">
   <div id="kommentarskjema" class="col-md-8 col-md-offset-2">
+    <h3 class="text-center">Legg til en kommentar om {{ $bedrift->Bedrift_navn }} her</h3>
     <form method="POST" action="{{ url('kommentarer', $bedrift->id) }}">
       {{ csrf_field() }}
 
@@ -74,7 +89,7 @@
         </div>
         <div class="col-md-12">
           <label name="kommentar">Kommentar:</label>
-          <textarea name="kommentar" class="form-control"></textarea>
+          <textarea name="kommentar" class="form-control" rows="5"></textarea>
 
           <input type="submit" value="Legg til kommentar" class="btn btn-success btn-block" />
         </div>
@@ -82,18 +97,20 @@
 
     </form>
   </div>
-
-</div>
 <div class="row">
 
 <div class="col-md-8 col-md-offset-2">
+
   <h1 class="text-center">{{ count($bedrift->kommentarer) }} kommentarer</h1>
   @foreach($bedrift->kommentarer as $kommentar)
     <div class="kommentar">
-      <p class="text-right">{{ date('j M, Y H:i', strtotime($kommentar->created_at)) }}</p>
-      <p><b>Navn:</b> {{ $kommentar->navn }}</p>
-      <p><b>Epost:</b> {{ $kommentar->epost }}</p>
-      <p><b>Kommentar:</b> <br />{{ $kommentar->kommentar }}</p><br /><br />
+      <div class="col-md-2">
+        <img src="{{ url('icons/Chat_Ikon.png') }}" class="kommentar-ikon" />
+      </div>
+      <p>Fra {{ $kommentar->navn }}, <a href="mailto:{{ $kommentar->epost }}">{{ $kommentar->epost }}</a>
+         skrevet {{ date('j M, Y H:i', strtotime($kommentar->created_at)) }}</p>
+      <hr />
+      <p>{{ $kommentar->kommentar }}</p><br /><br />
 
     </div>
   @endforeach
