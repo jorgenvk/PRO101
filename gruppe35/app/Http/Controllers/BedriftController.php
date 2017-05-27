@@ -69,7 +69,7 @@ class BedriftController extends Controller
                                 $bedrift->Minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
                                 $bedrift->Minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
 
-                                $bedrift->rating = self::rating($request->Navn, $request->Adresse); // Google rating                   
+                                $bedrift->rating = self::rating($request->Navn, $request->Adresse); // Google rating
 
                                 $bedrift->save();
                             }
@@ -104,22 +104,25 @@ class BedriftController extends Controller
     // Sorteringsfunksjon. sorterer på kategori
     public function sort($filter)
     {
-        if($filter == 'Uteliv') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
+        if($filter == 'Butikker') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '6')->get();
         }
-        else if($filter == 'Butikker') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '2')->get();
-        }
-        else if($filter == 'Kollektiv') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '3')->get();
-        }
-        else if($filter == 'Helse') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '4')->get();
+        else if($filter == 'Uteliv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '7')->get();
         }
         else if($filter == 'Trening') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '5')->get();
+            $bedrifter = Bedrift::where('Kategori_id', '=', '8')->get();
         }
-
+        else if($filter == 'Helse') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '9')->get();
+        }
+        else if($filter == 'Spisesteder') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '10')
+        }
+        else if($filter == 'Kollektiv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '11')->get();
+        }
+        
         $kategorier = Kategori::all();
 
         return view ('bedrift.list', compact('bedrifter', 'kategorier'));
