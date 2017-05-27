@@ -10,16 +10,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 @stop
 
+@include('layout.header')
+
 @section('body')
 
-  <div class="jumbotron">
+  <div class="jumbotron col-lg-10 col-lg-offset-1" style="background-color: #3C373A">
     <h1>Registrer nytt arrangement</h1>
     <p class="lead">--</p>
   </div>
    
   <div class="row">
 
-    <div class="col-lg-5">
+    <div class="col-lg-5 col-lg-offset-1">
         <h4>Opprett nytt arrangement</h4>
         <div class="input-group" style="width: 90%">
                 <form method="POST" enctype="multipart/form-data" name="formNyttArrangement" id="formNyttArrangement" action="{{ url('arrangement/lagre') }}">
@@ -56,7 +58,7 @@
           </div>
     </div>
 
-    <div class="col-lg-7">
+    <div class="col-lg-6">
       <h4>Arrangement - Sted</h4>
 
       <iframe
