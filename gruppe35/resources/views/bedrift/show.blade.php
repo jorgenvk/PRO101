@@ -2,6 +2,7 @@
 
 @section('tittel', "$bedrift->Bedrift_navn")
 @include('footer')
+@include('layout.header')
 @section('body')
 <div class="row">
   <div class="kart">
