@@ -71,7 +71,8 @@ class BedriftController extends Controller
                                 $bedrift->minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
                                 $bedrift->minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
 
-                                $bedrift->rating = self::rating($request->Navn, $request->Adresse); // Google rating
+                                $rating = self::rating($request->Navn, $request->Adresse); // Google rating
+                                if (is_double($rating) && isset($rating)) {$bedrift->rating = self::rating($request->Navn, $request->Adresse);}
 
                                 $bedrift->save();
                             }
