@@ -28,8 +28,21 @@ h1, h2, h3 {
   padding-bottom: 100px;
 }
 
+.bedrift p {
+  margin-top: 30px;
+}
+
 .bedriftdiv {
   margin: 10px 50px 0px 10px;
+}
+
+.bedriftdiv a {
+  color: #FF934F;
+}
+
+.bedriftdiv a:hover {
+  text-decoration: none;
+  color: #BA6B3A;
 }
 
 .bedrift_thumbnail {
@@ -43,12 +56,19 @@ h1, h2, h3 {
 }
 
 .kommentar {
-  background-color: #fff;
+  background-color: #EFECCA;
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
   padding-top: 10px;
   color: #5E565A;
+}
+
+.kommentar hr {
+  height: 1px;
+  color: #5E565A;
+  background-color: #5E565A;
+  border: none;
 }
 
 .kommentar-ikon {
