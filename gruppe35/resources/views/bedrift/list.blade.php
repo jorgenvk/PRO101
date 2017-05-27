@@ -14,11 +14,10 @@
           <div class="col-md-8 col-md-offset-3 kategorier">
 
 
-            <a href="{{ url('bedrift/list') }}">Alle</a>
-                     <?php foreach($kategorier as $kategori) { ?>
+            <a href="{{ url('bedrift/list') }}"><img src="{{ url('icons/Bedrift_Ikon.png') }}" width="50px">Alle</a>
+                      @foreach($kategorier as $kategori)
                            <a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}"><img src="{{ url('icons/'.$kategori->Kategori_navn.'.png') }}" width="50px">{{ $kategori->Kategori_navn }}</a>
-
-                     <?php } ?>
+                      @endforeach
         </div>
         <div class="row">
 
