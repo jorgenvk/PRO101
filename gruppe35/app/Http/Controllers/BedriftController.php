@@ -40,13 +40,15 @@ class BedriftController extends Controller
             $validator = Validator::make($request->input(),
                         [
                             'Navn'              => 'required:max:250',
-                            'Adresse'           => 'required:max:250'
+                            'Adresse'           => 'required:max:250',
+                            'Telefon'           => 'integer'
                         ],
                         [
                             'Navn.required'     => 'Bedriften må ha et navn!',
                             'Adresse.required'  => 'Bedriften må ha en adresse!',
                             'Navn.max'          => 'Bedriftsnavnet er for langt!',
                             'Adresse.max'       => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
+                            'Telefon.integer'   => 'Ikke et gyldig telefonnummer!'
                         ]);
                 if($validator->passes())
                     {
