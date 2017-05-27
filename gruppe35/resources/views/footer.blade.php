@@ -1,4 +1,5 @@
 <html>
+<body class="bodeh">
     <footer class="footer">
 
     <div class="footer-center">
@@ -19,16 +20,16 @@
         <p>© Copyright 2017 Gruppe 35</p>
     </div>
     </footer>
+</body>
 </html>
 
 <style>
-
     .footer-center img{
         width: 50px;
     }
     footer{
         position: absolute;
-        bottom: -65px;
+        bottom: -13%;
         left: 0;
         width: 100%;
     }

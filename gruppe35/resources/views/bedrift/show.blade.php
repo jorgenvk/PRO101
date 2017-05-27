@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('tittel', "$bedrift->Bedrift_navn")
-
+@include('footer')
 @section('body')
 <div class="row">
   <div class="kart">
