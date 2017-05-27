@@ -48,23 +48,15 @@
 
       @foreach ($bedrift->bilder()->orderBy('created_at', 'desc')->get() as $bilde)
           <div class="col-sm-2 bildeboks">
-            <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">
+            <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="liten-thumbnail">
           </div>
       @endforeach
 
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-
-        <!-- The Close Button -->
-        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-
-        <!-- Modal Content (The Image) -->
-        <img class="modal-content" id="img01">
-
-        <!-- Modal Caption (Image Text) -->
-        <div id="caption"></div>
-
+      <div id="popup-vindu" class="bilde-ramme">
+        <span class="close" onclick="document.getElementById('popup-vindu').style.display='none'">&times;</span>
+        <img class="bilde" id="stort-bilde">
       </div>
+
   </div><!-- ..row -->
 <div class="row">
   <div id="kommentarskjema" class="col-md-8 col-md-offset-2">
@@ -120,13 +112,13 @@
   </script>
   <script>
 
-  var modal = document.getElementById('myModal');
+  var modal = document.getElementById('popup-vindu');
 
-  var modalImg = document.getElementById("img01");
+  var modalImg = document.getElementById("stort-bilde");
 
   function onClick(element) {
   modalImg.src = element.src;
-  modalImg.style.display = "block";
+
   modal.style.display = "block";
 }
 
