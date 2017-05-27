@@ -82,6 +82,10 @@ class BedriftController extends Controller
                                 return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");
                             }
                     }
+                    else
+                    {
+                        return redirect()->back()->withInput()->withErrors($validator);
+                    }                    
             }
         else
             {
