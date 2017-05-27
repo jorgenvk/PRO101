@@ -64,10 +64,10 @@ class BedriftController extends Controller
                                 $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
 
                                 $avstand = self::avstand($request->Navn, $request->Adresse);
-                                $bedrift->Avstand_fjerdingen = $avstand[0]; // Avstand Fjerdingen i meter
-                                $bedrift->Avstand_vulkan = $avstand[2]; // Avstand Vulkan i meter
-                                $bedrift->Minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
-                                $bedrift->Minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
+                                $bedrift->avstand_fjerdingen = $avstand[0]; // Avstand Fjerdingen i meter
+                                $bedrift->avstand_vulkan = $avstand[2]; // Avstand Vulkan i meter
+                                $bedrift->minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
+                                $bedrift->minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
 
                                 $bedrift->rating = self::rating($request->Navn, $request->Adresse); // Google rating
 
