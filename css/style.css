@@ -5,20 +5,37 @@
         background-image: url("/bilder/school.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
+        
     }
     /*FELLES POSITION*/
     
     #container>* {
         position: absolute;
+        
+       
+       
     }
     
     #container {
         margin: auto;
-        position: relative;
+        position: absolute;
         width: 100%;
-        height: 750px;
+        height: 2000px;
+        /*Bakgrunn på alle sider*/
+        background: -webkit-linear-gradient(bottom,rgba(0,204,255,255), rgba(204,254,204,1));
+       
     }
     /* -- HEADER ----- */
+
+#ForsideBilde{
+    position: relative;
+    margin: auto;
+    top: 400px;
+    height: 500px;
+    width: 100%;
+    
+    
+}
     
     #logo {
         position: relative;
@@ -29,7 +46,7 @@
         font-size: 5em;
         top: 300px;
         margin: auto;
-        background: red;
+        background: 
     }
     /*    Alt innenfor NavBar-container    */
     
@@ -38,56 +55,175 @@
         text-align: center;
         width: 100%;
         height: 250px;
-        color: white;
-    }
+        font-family: 'Lobster';
+        font-size: 50px;
+        color: whitesmoke;
+        }
     
     #NavBar {
-        position: relative;
-        height: 250px;
-        top: 400px;
-        margin-bottom: auto;
-        margin-top: auto;
-        background: red;
-    }
+        
+      
+        }
+
     /*    Uteliv-ikon:     */
     
     #ICON-Uteliv {
-        width: 190px;
-        height: 100px;
-        margin-left: 45px;
-    }
-    /*    Trening-ikon     */
+        position: relative;
+        left: 700px;
+        bottom: 200px;
+       
+}
+
+    
+/*    Trening-ikon     */
     
     #ICON-Trening {
-        width: 190px;
-        height: 100px;
-        margin-left: 300px;
-    }
+        position: relative;
+        left: 1000px;
+        bottom: 200px;
+        
+        }
+
+
     /*    Helse-ikon   */
     
     #ICON-Helse {
-        width: 190px;
-        height: 100px;
-        margin-left: 530px;
+        position: relative;
+        left: 1300px;
+        bottom: 200px;
+   
     }
+
+
     /*     Uteliv-ikon    */
     
-    #ICON-Kollektivtransport {
-        width: 190px;
-        height: 100px;
-        margin-left: 780px;
+    #ICON-Kollektiv {
+        position: relative;
+        left: 1900px;
+        bottom: 200px;
     }
     /*    Spisesteder-ikon    */
     
     #ICON-Spisesteder {
-        width: 190px;
-        height: 100px;
-        margin-left: 990px;
+       position: relative;
+        left: 1600px;
+        bottom: 200px;
     }
     /*     Butikker-ikon    */
     
     #ICON-Butikker {
-        width: 190px;
-        height: 100px;
-        margin-left: 1190px;
+        position: relative;
+        left: 400px;
+        bottom: 200px;
     }
+
+/*UNDERSIDER: Alle undersidene- de skal være like*/
+
+                    /* START HEADER UNDERSIDER*/
+#Header{
+    position: relative;
+    position: fixed;
+    width: 100%;
+    padding: 1px;
+    padding-top: 20px;
+    padding-left: 10px;
+    height: 200px;
+    top: 2px;
+    background-color:rgb(221,238,230);
+    list-style: none;
+    }
+
+
+#LOGO-Header{
+    position:absolute;
+    height: 200px;
+    top: 1px;
+}
+#IkonHeader-search{
+    position: absolute;
+    height: 100px;
+    left: 2390px;
+    bottom: 20px;
+}
+
+#IkonHeader-butikker{
+    position: absolute;
+    bottom: 20px;
+    left:430px;
+    height: 100px;
+    
+}
+
+#IkonHeader-helse{
+    
+    position: absolute;
+    bottom: 20px;
+    right: 1900px;
+    height: 100px;
+     
+}
+#IkonHeader-mat{
+    position: absolute;
+    bottom: 20px;
+    right: 1790px;
+    height: 100px;
+    
+}
+#IkonHeader-trening{
+    position: absolute;
+    right: 1680px;
+    bottom: 20px;
+    height: 100px;
+}
+
+#IkonHeader-kollektiv{
+    position: absolute;
+    right: 1570px;
+    bottom: 20px;
+    height: 100px;
+}
+#IkonHeader-uteliv{
+    position: absolute;
+    bottom: 20px;
+    right: 1460px;
+    height: 100px;
+    
+}
+            
+
+
+            /*SLUTT HEADER UNDERSIDER*/
+
+#InfoBoks{
+    
+    position: relative;
+    width: 50%;
+    height: 900px;
+    top:300px;
+    background-color: azure;
+    opacity: 0.7;
+    }
+
+
+#KartBoks{
+    
+    position: relative;
+    height: 900px;
+    width: 50%;
+    bottom: 1500px;
+    left: 50%;
+    background-color:aliceblue;
+    opacity: 0.6;
+}
+
+#KommentarBoks{
+    
+    position: relative;
+    height: 900px;
+    top: 800px;
+    background-color: azure;
+    opacity: 0.6;
+}
+
+            /**/
+    
