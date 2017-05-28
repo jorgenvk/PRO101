@@ -13,7 +13,8 @@
 
 Route::get('/', 'Controller@forside');
 
-
+Route::get('arrangement/list', 'ArrangementController@list');
+Route::get('arrangement/show/{id}', 'ArrangementController@show')->where('id', '[0-9]+');
 
 Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
 
