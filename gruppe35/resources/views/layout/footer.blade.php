@@ -33,13 +33,23 @@
             <p class="bd-footer-links">
 
                 <a href="/omoss">Om oss</a>
-                ·
+
+                @if (!Auth::guest())
+                    ·
                 <a href="/bedrift/ny">Ny bedrift</a>
                 ·
                 <a href="/arrangement/ny">Nytt arrangement</a>
+                @endif
+
+                @if (Auth::guest())
+                ·
+                    <a href="/login">Logg inn</a>
+                @endif
+
             </p>
             <p class="text-muted">© Copyright 2017 Gruppe 35</p>
         </div>
+
     </footer>
     </body>
     </html>

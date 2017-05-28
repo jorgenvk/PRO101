@@ -1,13 +1,13 @@
 @extends('layout.master')
 @include('layout.header')
-@section('tittel', 'FORSIDE')
+@section('tittel', 'Forside - Westfinder')
 
 @section('header')
 <style>
 body {
   position: absolute;
   background-size: cover;
-  background-image: url("https://lh3.googleusercontent.com/uwZVGQLls0vrRnr7NumPGdjkBo-cjfIHfGMib7voSm6EusIqYG5d368U2f9lRdgK-0AmwuoCrdqnhRA=w1859-h966-rw");
+  background-image: url("https://lh6.googleusercontent.com/WpLju4WpsAcAODXL73nKCgnoBz5AJqrKLKiuPeJmfq6LlmXq5mVTA9XzkvKCetSQtDrHRWtgpWJXn00=w1859-h917-rw");
   display: block;
   height: 100%;
   width: 100%;
@@ -15,17 +15,22 @@ body {
   right: 0;
   z-index: 1;
 }
-
-  .kategorier img{
-    width: 130px;
+  .bildeboks{
+    top: 0;
+    padding: 20px;
   }
+
+  .row{
+    padding: 5%;
+  }
+
 </style>
 @stop
 <div class="container">
 @section('body')
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-calendar"></span> Hva skjer?</h2>
       @foreach ($arrangementer as $arrangement)
         {{ $arrangement->tittel }}
@@ -34,7 +39,7 @@ body {
   </div>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-camera"></span> Siste knips!</h2>
       @foreach ($bilder as $bilde)
         <div class="col-sm-2 bildeboks">

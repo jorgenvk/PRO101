@@ -1,6 +1,6 @@
 @extends('layout.master')
 @include('layout.header')
-@section('tittel', 'Om oss')
+@section('tittel', 'Om oss - Westfinder')
 
 <div class="bedrift col-md-10 col-md-offset-1">
     <h1 class="text-center">Om oss</h1>
