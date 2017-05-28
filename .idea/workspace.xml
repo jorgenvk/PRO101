@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c0d2b90f-a872-4803-a0e7-1ce083d7487f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gruppe35/public/css/style.css" afterPath="$PROJECT_DIR$/gruppe35/public/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gruppe35/resources/views/forside.blade.php" afterPath="$PROJECT_DIR$/gruppe35/resources/views/forside.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gruppe35/resources/views/omoss.blade.php" afterPath="$PROJECT_DIR$/gruppe35/resources/views/omoss.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,39 +102,39 @@
       <file leaf-file-name="forside.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gruppe35/resources/views/forside.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+            <state relative-caret-position="90">
+              <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
               <folding>
-                <marker date="1496000527969" expanded="true" signature="9:24" ph="..." />
-                <marker date="1496000527969" expanded="true" signature="35:50" ph="..." />
-                <marker date="1496000527969" expanded="true" signature="61:93" ph="..." />
-                <marker date="1496000527969" expanded="true" signature="105:113" ph="..." />
-                <marker date="1496000527969" expanded="true" signature="550:556" ph="..." />
-                <marker date="1496000527969" expanded="true" signature="765:787" ph="..." />
-                <marker date="1496000527969" expanded="true" signature="1102:1143" ph="..." />
+                <marker date="1496001765230" expanded="true" signature="9:24" ph="..." />
+                <marker date="1496001765230" expanded="true" signature="35:50" ph="..." />
+                <marker date="1496001765230" expanded="true" signature="61:93" ph="..." />
+                <marker date="1496001765230" expanded="true" signature="105:113" ph="..." />
+                <marker date="1496001765230" expanded="true" signature="442:448" ph="..." />
+                <marker date="1496001765230" expanded="true" signature="657:679" ph="..." />
+                <marker date="1496001765230" expanded="true" signature="994:1035" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="omoss.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="omoss.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gruppe35/resources/views/omoss.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="288">
+              <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
               <folding>
-                <marker date="1496000401533" expanded="true" signature="9:24" ph="..." />
-                <marker date="1496000401533" expanded="true" signature="35:50" ph="..." />
-                <marker date="1496000401533" expanded="true" signature="61:92" ph="..." />
+                <marker date="1496001816910" expanded="true" signature="9:24" ph="..." />
+                <marker date="1496001816910" expanded="true" signature="35:50" ph="..." />
+                <marker date="1496001816910" expanded="true" signature="61:92" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gruppe35/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2476">
+            <state relative-caret-position="440">
               <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
               <folding />
             </state>
@@ -262,10 +263,10 @@
         <option value="$PROJECT_DIR$/gruppe35/resources/views/arrangement/show.blade.php" />
         <option value="$PROJECT_DIR$/gruppe35/resources/views/bedrift/edit.blade.php" />
         <option value="$PROJECT_DIR$/gruppe35/resources/views/bedrift/adminlist.blade.php" />
-        <option value="$PROJECT_DIR$/gruppe35/resources/views/omoss.blade.php" />
-        <option value="$PROJECT_DIR$/gruppe35/resources/views/forside.blade.php" />
         <option value="$PROJECT_DIR$/gruppe35/resources/views/layout/footer.blade.php" />
         <option value="$PROJECT_DIR$/gruppe35/public/css/style.css" />
+        <option value="$PROJECT_DIR$/gruppe35/resources/views/forside.blade.php" />
+        <option value="$PROJECT_DIR$/gruppe35/resources/views/omoss.blade.php" />
       </list>
     </option>
   </component>
@@ -280,8 +281,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="287" />
-    <option name="y" value="137" />
+    <option name="x" value="33" />
+    <option name="y" value="122" />
     <option name="width" value="1853" />
     <option name="height" value="924" />
   </component>
@@ -822,18 +823,18 @@
       <workItem from="1494412481387" duration="3812000" />
       <workItem from="1495792200689" duration="3756000" />
       <workItem from="1495797169694" duration="2653000" />
-      <workItem from="1495965023274" duration="29674000" />
+      <workItem from="1495965023274" duration="30205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69124000" />
+    <option name="totallyTimeSpent" value="69655000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="287" y="137" width="1853" height="924" extended-state="0" />
+    <frame x="33" y="122" width="1853" height="924" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2169455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2169455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -884,10 +885,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21634616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2169455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1480,34 +1481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gruppe35/resources/views/omoss.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding>
-            <marker date="1496000401533" expanded="true" signature="9:24" ph="..." />
-            <marker date="1496000401533" expanded="true" signature="35:50" ph="..." />
-            <marker date="1496000401533" expanded="true" signature="61:92" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gruppe35/resources/views/forside.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-          <folding>
-            <marker date="1496000527969" expanded="true" signature="9:24" ph="..." />
-            <marker date="1496000527969" expanded="true" signature="35:50" ph="..." />
-            <marker date="1496000527969" expanded="true" signature="61:93" ph="..." />
-            <marker date="1496000527969" expanded="true" signature="105:113" ph="..." />
-            <marker date="1496000527969" expanded="true" signature="550:556" ph="..." />
-            <marker date="1496000527969" expanded="true" signature="765:787" ph="..." />
-            <marker date="1496000527969" expanded="true" signature="1102:1143" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gruppe35/resources/views/layout/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1520,9 +1493,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gruppe35/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2476">
+        <state relative-caret-position="440">
           <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gruppe35/resources/views/forside.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <marker date="1496001765230" expanded="true" signature="9:24" ph="..." />
+            <marker date="1496001765230" expanded="true" signature="35:50" ph="..." />
+            <marker date="1496001765230" expanded="true" signature="61:93" ph="..." />
+            <marker date="1496001765230" expanded="true" signature="105:113" ph="..." />
+            <marker date="1496001765230" expanded="true" signature="442:448" ph="..." />
+            <marker date="1496001765230" expanded="true" signature="657:679" ph="..." />
+            <marker date="1496001765230" expanded="true" signature="994:1035" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gruppe35/resources/views/omoss.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding>
+            <marker date="1496001816910" expanded="true" signature="9:24" ph="..." />
+            <marker date="1496001816910" expanded="true" signature="35:50" ph="..." />
+            <marker date="1496001816910" expanded="true" signature="61:92" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

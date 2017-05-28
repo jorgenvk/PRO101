@@ -7,7 +7,7 @@
 body {
   position: absolute;
   background-size: cover;
-  background-image: url("https://lh6.googleusercontent.com/WpLju4WpsAcAODXL73nKCgnoBz5AJqrKLKiuPeJmfq6LlmXq5mVTA9XzkvKCetSQtDrHRWtgpWJXn00=w1859-h917-rw");
+  background-image: url("/bilder/forside.jpg");
   display: block;
   height: 100%;
   width: 100%;
