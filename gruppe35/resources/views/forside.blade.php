@@ -17,7 +17,7 @@ body {
 }
   .bildeboks{
     top: 0;
-    border: solid;
+    padding: 20px;
   }
 
   .row{

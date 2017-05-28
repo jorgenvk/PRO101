@@ -3,6 +3,7 @@
 @section('tittel', "$bedrift->Bedrift_navn - Westfinder")
 @include('layout.header')
 @section('body')
+
 <div class="row">
   <div class="kart">
     <iframe
