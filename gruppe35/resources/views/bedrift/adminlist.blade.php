@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('tittel', 'Admin')
+@section('tittel', 'Slette/Endre - Westfinder')
 
 @section('body')
    		<div class="col-md-12">
