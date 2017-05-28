@@ -23,8 +23,11 @@
 <div class="row">
     @foreach($bedrifter as $bedrift)
       <div class="col-md-3 bedriftdiv">
-        <a href="{{ url('bedrift/show/'.$bedrift->id) }}">
-          <img class="bedrift_thumbnail" src="{{ $bedrift->Bilde }}"/>
+        <div class="img-frame">
+          <a href="{{ url('bedrift/show/'.$bedrift->id) }}">
+            <img class="img-responsive" src="{{ $bedrift->Bilde }}"/>
+        </div>
+
           <p class="overlay">Avstand til Fjerdingen: {{ $bedrift->avstand_fjerdingen }}m</p>
           <p class="overlay vulkan">Avstand til Vulkan: {{ $bedrift->avstand_vulkan }}m</p>
         <h2>{{ $bedrift->Bedrift_navn }}</a></h2>

@@ -18,7 +18,7 @@
   <div class="row">
         <h1 class="text-center"> {{ $bedrift->Bedrift_navn }}</h1>
         <div class="col-md-6">
-            <img onclick="onClick(this)" src="{{ $bedrift->Bilde }}" class="bedriftbilde"/>
+            <img onclick="onClick(this)" src="{{ $bedrift->Bilde }}" class="img-responsive"/>
             <p>{{ $bedrift->Beskrivelse }}</p>
         </div>
         <div class="col-md-6 info-text">
