@@ -290,3 +290,12 @@ textarea {
   height: 100px;
   margin: 10px;
 }
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 0px;
+}
