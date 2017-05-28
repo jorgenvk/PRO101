@@ -1,5 +1,4 @@
 @extends('layout.master')
-@include('footer')
 @section('tittel', 'Registrer ny admin bruker')
 
 @include('layout.header')
