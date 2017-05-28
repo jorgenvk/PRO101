@@ -2,7 +2,7 @@
 @include('layout.header')
 @section('tittel', 'Om oss - Westfinder')
 
-<div class="bedrift col-md-10 col-md-offset-1">
+<div class="omoss col-md-10 col-md-offset-1">
     <img src="/bilder/logo.png" style="height:250px;">
     <h1>Westfinder</h1>
     <p>Westfinder er en applikasjon for studenter ved Westerdals, og tar utgangspunkt i campusene ved Fjerdingen og Vulkan for å gi informasjon om deres nærmiljøer.</p>
