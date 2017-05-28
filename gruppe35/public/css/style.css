@@ -35,6 +35,20 @@ h1, h2, h3 {
 
 .bedriftdiv {
   margin: 10px 50px 0px 10px;
+  height: 400px;
+}
+
+.overlay {
+  position: absolute;
+  top: 145px;
+  margin-top: 10px;
+  background-color: rgba(0,0,0, 0.8);
+  color: #EFECCA;
+  font-size: 1.1em;
+}
+
+.vulkan {
+  top: 170px;
 }
 
 a {
@@ -48,7 +62,7 @@ a:hover {
 
 .bedrift_thumbnail {
   width: 100%;
-  height: 150px;
+  height: 200px;
 }
 
 .kategorier {
