@@ -234,5 +234,8 @@ textarea {
 
 /* -- KNAPPER -- */
 .btn-info{
+  background-color: #D17941;
+}
+.btn-info:hover {
   background-color: #FF934F;
 }
