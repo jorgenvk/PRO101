@@ -28,6 +28,10 @@
     {{ csrf_field() }}
 </form>
 </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url('/admin') }}"><img src="{{ url('icons/Bedrift.png') }}" width="50px">Adminpanel</a></li>
+    </ul>
 @endif
 
 <!-- HØYRE SIDE -->
