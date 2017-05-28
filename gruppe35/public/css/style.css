@@ -206,3 +206,33 @@ textarea {
         width: 100%;
     }
 }
+
+/* -- HEADER -- */
+.navbar-default {
+    background-color: #453F42;
+    border-color: #FF934F;
+}
+.nav.navbar-nav > li > a {
+  color:#EFECCA;
+}
+.nav.navbar-nav > li > a:hover {
+  color:#FF934F ;
+}
+.sokeboks {
+  line-height: 60px;
+}
+.navbar-brand {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  margin-left: 60px;
+  margin-right: 40px;
+}
+
+/* -- KNAPPER -- */
+.btn-info{
+  background-color: #FF934F;
+}
