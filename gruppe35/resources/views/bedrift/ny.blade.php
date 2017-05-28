@@ -6,7 +6,7 @@
 
 @section('body')
 
-  <div class="jumbotron col-lg-10 col-lg-offset-1" style="background-color: #3C373A">>
+  <div class="jumbotron col-lg-10 col-lg-offset-1" style="background-color: #3C373A">
     <h1>Legg til ny bedrift i databasen</h1>
     <p class="lead">Her kan man legge til ny bedrift i DB.</p>
   </div>

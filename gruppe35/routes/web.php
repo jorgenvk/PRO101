@@ -28,6 +28,10 @@ Route::get('bedrift/delete/{id}', 'BedriftController@delete');
 
 Route::get('bedrift/show/{id}', 'BedriftController@show');
 
+Route::get('bedrift/edit/{id}', 'BedriftController@edit');
+
+Route::post('bedrift/update/{id}', 'BedriftController@update');
+
 Route::post('kommentarer/{bedrift_id}', 'KommentarController@lagre');
 
 Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');

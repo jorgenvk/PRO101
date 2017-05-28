@@ -85,7 +85,7 @@ class BedriftController extends Controller
                     else
                     {
                         return redirect()->back()->withInput()->withErrors($validator);
-                    }                    
+                    }
             }
         else
             {
@@ -97,6 +97,42 @@ class BedriftController extends Controller
         return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er opprettet</strong><br>Du har lagt til en ny bedrift.');
     }
 
+    public function edit($id)
+    {
+        $bedrift = Bedrift::find($id);
+        $kategorier = Kategori::all();
+
+        return view('bedrift.edit', compact('bedrift', 'kategorier'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $bedrift = Bedrift::find($id);
+
+        $bedrift->Bedrift_navn  = $request->Navn;
+        $bedrift->Kategori_id   = $request->Kategori;
+        $bedrift->Adresse       = $request->Adresse;
+        $bedrift->Telefon       = $request->Telefon;
+        $bedrift->Beskrivelse   = $request->Beskrivelse;
+        $bedrift->Åpningstider  = $request->Åpningstider;
+        $bedrift->Nettside      = $request->Nettside;
+
+        $avstand = self::avstand($request->Navn, $request->Adresse);
+        $bedrift->avstand_fjerdingen = $avstand[0]; // Avstand Fjerdingen i meter
+        $bedrift->avstand_vulkan = $avstand[2]; // Avstand Vulkan i meter
+        $bedrift->minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
+        $bedrift->minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
+
+        $rating = self::rating($request->Navn, $request->Adresse); // Google rating
+        if (is_double($rating) && isset($rating)) {$bedrift->rating = self::rating($request->Navn, $request->Adresse);}
+
+        $bedrift->save();
+
+        return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er endret.</strong>');
+
+
+    }
 
     public function show($id)
     {
