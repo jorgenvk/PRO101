@@ -25,7 +25,8 @@
    				</tr>
                @foreach ($bedrifter as $bedrift)
    				<tr>
-            <td><a href="{{ url('bedrift/delete/'.$bedrift->id) }}">Slett</a></td>
+            <td><a href="{{ url('bedrift/delete/'.$bedrift->id) }}">Slett</a>
+            <a href="{{ url('bedrift/edit', $bedrift->id) }}">Endre</a></td>
             <td>{{ $bedrift->kategori->Kategori_navn }}</td>
    					<td>{{ $bedrift->Bedrift_navn }}</td>
    					<td>{{ $bedrift->Adresse }}</td>
