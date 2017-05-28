@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('tittel', "$arrangement->tittel")
+@section('tittel', "$arrangement->tittel - Westfinder")
 @include('layout.header')
 @section('body')
 

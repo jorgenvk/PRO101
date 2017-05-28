@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('tittel', 'Adminpanel')
+@section('tittel', 'Adminpanel - Westfinder')
 
 @include('layout.header')
 

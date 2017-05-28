@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('tittel', 'Arrangementer')
+@section('tittel', 'Arrangementer - Westfinder')
 
 @section('body')
 
