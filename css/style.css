@@ -25,17 +25,34 @@
         background: -webkit-linear-gradient(bottom,rgba(0,204,255,255), rgba(204,254,204,1));
        
     }
-    /* -- HEADER ----- */
+   
 
-#ForsideBilde{
+#Forside-bilde1{
     position: relative;
     margin: auto;
-    top: 400px;
+    top: 200px;
     height: 500px;
-    width: 100%;
+    width: 30%;
     
     
 }
+
+#Forside-bilde2{
+    
+    position: relative;
+    margin: auto;
+    top: 200px;
+    height: 500px;
+    width: 30%
+}
+#Forside-bilde3{
+    position: relative;
+    margin: auto;
+    
+}
+
+/* -- HEADER ----- */
+
     
     #logo {
         position: relative;
@@ -119,7 +136,9 @@
 
 /*UNDERSIDER: Alle undersidene- de skal være like*/
 
-                    /* START HEADER UNDERSIDER*/
+        /* START HEADER UNDERSIDER*/
+
+
 #Header{
     position: relative;
     position: fixed;
@@ -127,7 +146,7 @@
     padding: 1px;
     padding-top: 20px;
     padding-left: 10px;
-    height: 200px;
+    height: 150px;
     top: 2px;
     background-color:rgb(221,238,230);
     list-style: none;
@@ -136,9 +155,20 @@
 
 #LOGO-Header{
     position:absolute;
-    height: 200px;
+    height: 155px;
+    width: 200px;
     top: 1px;
+    -webki-transition: width 1s, height 1s, linear, ease;
 }
+
+/*Hover effekt Logo*/
+#LOGO-Header:hover{
+    width:250px;
+    height: 190px;
+    
+    
+}
+
 #IkonHeader-search{
     position: absolute;
     height: 100px;
@@ -151,29 +181,48 @@
     bottom: 20px;
     left:430px;
     height: 100px;
-    
-}
+    -webki-transition: width 1s, height 1s, linear, ease;
+    }
+/*Hover effekt Ikon BUTIKKER*/
+#IkonHeader-butikker:hover{
+    height: 120px;
+    }
 
 #IkonHeader-helse{
-    
     position: absolute;
     bottom: 20px;
     right: 1900px;
     height: 100px;
-     
+    -webki-transition: width 1s, height 1s, linear, ease;
 }
+/*Hover effekt Ikon HELSE*/
+#IkonHeader-helse:hover{
+    height: 120px;
+}
+
+
 #IkonHeader-mat{
     position: absolute;
     bottom: 20px;
     right: 1790px;
     height: 100px;
-    
+    -webki-transition: width 1s, height 1s, linear, ease;
 }
+/*Hover effekt Ikon mat*/
+#IkonHeader-mat:hover{
+    height: 120px;
+}
+
 #IkonHeader-trening{
     position: absolute;
     right: 1680px;
     bottom: 20px;
     height: 100px;
+    -webki-transition: width 1s, height 1s, linear, ease;
+}
+/*Hover effekt Ikon trening*/
+#IkonHeader-trening:hover{
+    height: 120px;
 }
 
 #IkonHeader-kollektiv{
@@ -181,15 +230,26 @@
     right: 1570px;
     bottom: 20px;
     height: 100px;
+    -webki-transition: width 1s, height 1s, linear, ease;
 }
+/*Hover effekt Ikon kollektiv*/
+#IkonHeader-kollektiv:hover{
+    height: 120px;
+}
+
 #IkonHeader-uteliv{
     position: absolute;
     bottom: 20px;
     right: 1460px;
     height: 100px;
-    
+    -webki-transition: width 1s, height 1s, linear, ease;
 }
-            
+/*Hover effekt ikon uteliv*/
+#IkonHeader-uteliv:hover{
+    height: 120px;
+}
+
+
 
 
             /*SLUTT HEADER UNDERSIDER*/

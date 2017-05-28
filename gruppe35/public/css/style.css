@@ -244,3 +244,7 @@ textarea {
 .panel-default {
   background-color: #453F42;
 }
+
+.admin {
+  margin-top: 40px;
+}

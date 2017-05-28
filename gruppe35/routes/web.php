@@ -14,6 +14,7 @@
 Route::get('/', 'Controller@forside');
 
 
+
 Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
 
 Route::get('bedrift/list', 'BedriftController@sort');
@@ -21,27 +22,25 @@ Route::get('bedrift/list', 'BedriftController@sort');
 Route::get('bedrift/list/{kategori}/{filter}', 'BedriftController@sort');
 
 Route::post('bedrift/search', 'BedriftController@search');
-
-Route::get('bedrift/admin', 'BedriftController@admin');
-
-Route::get('bedrift/delete/{id}', 'BedriftController@delete');
-
 Route::get('bedrift/show/{id}', 'BedriftController@show');
-
-Route::get('bedrift/edit/{id}', 'BedriftController@edit');
-
-Route::post('bedrift/update/{id}', 'BedriftController@update');
-
 Route::post('kommentarer/{bedrift_id}', 'KommentarController@lagre');
+Route::post('bilder/upload', 'BildeController@upload');
+Route::get('bedrift/avstand/{bedrift}/{adresse}', 'BedriftController@avstand');
+Route::get('bedrift/rating/{bedrift}/{adresse}', 'BedriftController@rating');
+Route::get('omoss', 'Controller@omoss');
 
-Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');
-Route::post('bedrift/lagre', 'BedriftController@postNyBedrift');
+Auth::routes();
 
+// Routes beskyttet for admin
+Route::group(['middleware' => 'auth'], function () {
+Route::get('/admin', 'Controller@admin');
 Route::get('arrangement/ny', 'ArrangementController@pageNyttArrangement');
 Route::post('arrangement/lagre', 'ArrangementController@lagre');
-
-Route::post('bilder/upload', 'BildeController@upload');
-
-Route::get('bedrift/avstand/{bedrift}/{adresse}', 'BedriftController@avstand');
-
-Route::get('bedrift/rating/{bedrift}/{adresse}', 'BedriftController@rating');
+Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');
+Route::post('bedrift/lagre', 'BedriftController@postNyBedrift');
+Route::get('bedrift/edit/{id}', 'BedriftController@edit');
+Route::post('bedrift/update/{id}', 'BedriftController@update');
+Route::get('bedrift/admin', 'BedriftController@admin');
+Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
+Route::get('bedrift/delete/{id}', 'BedriftController@delete');
+});

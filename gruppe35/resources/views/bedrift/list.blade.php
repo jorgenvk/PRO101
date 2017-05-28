@@ -1,8 +1,7 @@
 @extends('layout.master')
-@include('footer')
 @section('tittel', 'Bedrifter')
 
-@include('layout.header')
+
 
 @section('body')
 <div class="row">

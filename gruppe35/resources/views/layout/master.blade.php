@@ -1,3 +1,5 @@
+@include('layout.footer')
+@include('layout.header')
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,3 +35,10 @@
 
 </body>
 </html>
+
+<style>
+    body {
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+</style>

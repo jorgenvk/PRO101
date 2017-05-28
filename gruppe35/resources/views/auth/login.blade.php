@@ -1,5 +1,4 @@
 @extends('layout.master')
-@include('footer')
 @section('tittel', 'Registrer ny admin bruker')
 
 @include('layout.header')
@@ -7,7 +6,7 @@
 @section('body')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2 admin">
             <div class="panel panel-default">
                 <div class="panel-heading">Logg inn til admin-panel</div>
                 <div class="panel-body">
