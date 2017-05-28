@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('tittel') Registrer ny bedrift @stop
+@section('tittel') Registrer ny bedrift - Westfinder @stop
 
 @include('layout.header')
 

@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('tittel', 'Registrer nytt arrangement')
+@section('tittel', 'Registrer nytt arrangement - Westfinder')
 @section('header')
 <!-- CDN link til datetimepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.js"></script>

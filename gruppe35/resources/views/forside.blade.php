@@ -1,6 +1,6 @@
 @extends('layout.master')
 @include('layout.header')
-@section('tittel', 'FORSIDE')
+@section('tittel', 'Forside - Westfinder')
 
 @section('header')
 <style>
@@ -15,17 +15,22 @@ body {
   right: 0;
   z-index: 1;
 }
-
-  .kategorier img{
-    width: 130px;
+  .bildeboks{
+    top: 0;
+    padding: 20px;
   }
+
+  .row{
+    padding: 5%;
+  }
+
 </style>
 @stop
 <div class="container">
 @section('body')
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-calendar"></span> Hva skjer?</h2>
       @foreach ($arrangementer as $arrangement)
         {{ $arrangement->tittel }}
@@ -34,16 +39,43 @@ body {
   </div>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-camera"></span> Siste knips!</h2>
       @foreach ($bilder as $bilde)
         <div class="col-sm-2 bildeboks">
-          <a href="{{ $bilde->bedrift->id }}">
-            <img src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">
-          </a>
+
+            <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="liten-thumbnail">
+
         </div>
       @endforeach
     </div>
-  </div>  
+    <div id="popup-vindu" class="bilde-ramme">
+      <span class="close" onclick="document.getElementById('popup-vindu').style.display='none'">&times;</span>
+      <img class="bilde" id="stort-bilde">
+    </div>
+  </div>
+  <script>
+
+  var modal = document.getElementById('popup-vindu');
+
+  var modalImg = document.getElementById("stort-bilde");
+
+  function onClick(element) {
+  modalImg.src = element.src;
+
+  modal.style.display = "block";
+}
+
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
 @endsection
 </div>

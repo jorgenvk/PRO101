@@ -1,8 +1,9 @@
 @extends('layout.master')
 
-@section('tittel', "$bedrift->Bedrift_navn")
+@section('tittel', "$bedrift->Bedrift_navn - Westfinder")
 @include('layout.header')
 @section('body')
+
 <div class="row">
   <div class="kart">
     <iframe
@@ -31,7 +32,7 @@
             <li><img src="{{ url('icons/Info_Ikon.png') }}" class="listeikoner" />
               Åpningstider: {{ $bedrift->Åpningstider }}</li>
             <li><img src="{{ url('icons/Søke_Ikon1.png') }}" class="listeikoner" />
-              Nettside: {{ $bedrift->Nettside }}</li>
+              Nettside: <a href="{{ url('http://'.$bedrift->Nettside) }}">{{ $bedrift->Nettside }}</a></li>
             <li><img src="{{ url('icons/Campus_Ikon.png') }}" class="listeikoner" />
               {{ $bedrift->avstand_fjerdingen }}m / {{ $bedrift->minutter_fjerdingen }} min fra Campus Fjerdingen</li>
             <li><img src="{{ url('icons/Campus_Ikon.png') }}" class="listeikoner" />

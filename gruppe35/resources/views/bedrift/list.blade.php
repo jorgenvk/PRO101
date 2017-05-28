@@ -1,7 +1,13 @@
 @extends('layout.master')
-@section('tittel', 'Bedrifter')
 
+@section('tittel') {{$kategori}} - Westfinder @stop
 
+<style>
+    body{
+        text-align: center;
+    }
+    
+</style>
 
 @section('body')
 <div class="row">
