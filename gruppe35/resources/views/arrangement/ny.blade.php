@@ -1,5 +1,4 @@
 @extends('layout.master')
-@include('layout.footer')
 @section('tittel', 'Registrer nytt arrangement')
 @section('header')
 <!-- CDN link til datetimepicker -->

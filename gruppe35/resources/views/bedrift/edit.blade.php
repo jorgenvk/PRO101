@@ -1,5 +1,4 @@
 @extends('layout.master')
-@include('footer')
 @section('tittel') Registrer ny bedrift @stop
 
 @include('layout.header')
