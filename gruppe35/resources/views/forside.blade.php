@@ -30,7 +30,7 @@ body {
 @section('body')
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-0">
+    <div class="forside col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-calendar"></span> Hva skjer?</h2>
       @foreach ($arrangementer as $arrangement)
         {{ $arrangement->tittel }}
@@ -39,7 +39,7 @@ body {
   </div>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-0">
+    <div class="forside col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-camera"></span> Siste knips!</h2>
       @foreach ($bilder as $bilde)
         <div class="col-sm-2 bildeboks">

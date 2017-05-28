@@ -1,26 +1,4 @@
 @section('footer')
-    <style>
-
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        body {
-            /* Margin bottom by footer height */
-            margin-bottom: 0px;
-        }
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 16px;
-        }
-        .footer img{
-            width: 50px;
-        }
-    </style>
-
     <html>
     <body>
     <footer class="footer">
