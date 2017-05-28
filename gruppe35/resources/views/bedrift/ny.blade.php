@@ -1,17 +1,19 @@
 @extends('layout.master')
-
+@include('footer')
 @section('tittel') Registrer ny bedrift @stop
+
+@include('layout.header')
 
 @section('body')
 
-  <div class="jumbotron">
+  <div class="jumbotron col-lg-10 col-lg-offset-1" style="background-color: #3C373A">
     <h1>Legg til ny bedrift i databasen</h1>
     <p class="lead">Her kan man legge til ny bedrift i DB.</p>
   </div>
    
   <div class="row">
 
-    <div class="col-lg-5">
+    <div class="col-lg-5 col-lg-offset-1">
         <h4>Informasjon - Ny bedrift</h4>
         <div class="input-group" style="width: 90%">
                 <form method="POST" enctype="multipart/form-data" name="formNyBedrift" id="formNyBedrift" action="{{ url('bedrift/lagre') }}">
@@ -37,7 +39,7 @@
           </div>            
     </div>
 
-    <div class="col-lg-7">
+    <div class="col-lg-6">
       <h4>Lokasjon - Google Maps</h4>
       <p>Din lokasjon vil oppdateres når du skriver inn adressen.</p>
       <iframe

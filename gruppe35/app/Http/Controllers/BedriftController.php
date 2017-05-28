@@ -39,14 +39,16 @@ class BedriftController extends Controller
             {
             $validator = Validator::make($request->input(),
                         [
-                            'Bedrift_navn'                    => 'required:max:250',
-                            'Adresse'                         => 'required:max:250'
+                            'Navn'              => 'required:max:250',
+                            'Adresse'           => 'required:max:250',
+                            'Telefon'           => 'integer'
                         ],
                         [
-                            'Bedrift_navn.required'     => 'Bedriften må ha et navn!',
-                            'Adresse.required'          => 'Bedriften må ha en adresse!',
-                            'Bedrift_navn.max'          => 'Bedriftsnavnet er for langt!',
-                            'Adresse.max'               => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
+                            'Navn.required'     => 'Bedriften må ha et navn!',
+                            'Adresse.required'  => 'Bedriften må ha en adresse!',
+                            'Navn.max'          => 'Bedriftsnavnet er for langt!',
+                            'Adresse.max'       => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
+                            'Telefon.integer'   => 'Ikke et gyldig telefonnummer!'
                         ]);
                 if($validator->passes())
                     {
@@ -63,6 +65,15 @@ class BedriftController extends Controller
                                 $bedrift->Nettside      = $request->Nettside;
                                 $bedrift->Bilde         = Storage::disk('s3')->url($s3upload);
 
+                                $avstand = self::avstand($request->Navn, $request->Adresse);
+                                $bedrift->avstand_fjerdingen = $avstand[0]; // Avstand Fjerdingen i meter
+                                $bedrift->avstand_vulkan = $avstand[2]; // Avstand Vulkan i meter
+                                $bedrift->minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
+                                $bedrift->minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
+
+                                $rating = self::rating($request->Navn, $request->Adresse); // Google rating
+                                if (is_double($rating) && isset($rating)) {$bedrift->rating = self::rating($request->Navn, $request->Adresse);}
+
                                 $bedrift->save();
                             }
                         else
@@ -70,6 +81,10 @@ class BedriftController extends Controller
                                 // Profilbildet ble IKKE lastet opp
                                 return redirect()->back()->withInput()->withErrors("Feil ved opplasting av bilde til server. Prøv igjen!");
                             }
+                    }
+                    else
+                    {
+                        return redirect()->back()->withInput()->withErrors($validator);
                     }
             }
         else
@@ -79,35 +94,76 @@ class BedriftController extends Controller
             }
 
         // Alt OK
-		return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er opprettet</strong><br>Du har lagt til en ny bedrift.');
+        return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er opprettet</strong><br>Du har lagt til en ny bedrift.');
+    }
+
+    public function edit($id)
+    {
+        $bedrift = Bedrift::find($id);
+        $kategorier = Kategori::all();
+
+        return view('bedrift.edit', compact('bedrift', 'kategorier'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $bedrift = Bedrift::find($id);
+
+        $bedrift->Bedrift_navn  = $request->Navn;
+        $bedrift->Kategori_id   = $request->Kategori;
+        $bedrift->Adresse       = $request->Adresse;
+        $bedrift->Telefon       = $request->Telefon;
+        $bedrift->Beskrivelse   = $request->Beskrivelse;
+        $bedrift->Åpningstider  = $request->Åpningstider;
+        $bedrift->Nettside      = $request->Nettside;
+
+        $avstand = self::avstand($request->Navn, $request->Adresse);
+        $bedrift->avstand_fjerdingen = $avstand[0]; // Avstand Fjerdingen i meter
+        $bedrift->avstand_vulkan = $avstand[2]; // Avstand Vulkan i meter
+        $bedrift->minutter_fjerdingen = round($avstand[1]); // Avstand Fjerdingen i tid/minutter
+        $bedrift->minutter_vulkan = round($avstand[3]); //Avstand Vulkan i tid/minutter
+
+        $rating = self::rating($request->Navn, $request->Adresse); // Google rating
+        if (is_double($rating) && isset($rating)) {$bedrift->rating = self::rating($request->Navn, $request->Adresse);}
+
+        $bedrift->save();
+
+        return redirect('bedrift/show/'.$bedrift->id)->with('status_ok', '<strong>Bedriften er endret.</strong>');
+
+
     }
 
     public function show($id)
     {
       $bedrift = Bedrift::find($id);
       $avstand = self::avstand($bedrift->Bedrift_navn, $bedrift->Adresse);
+      $rating = self::rating($bedrift->Bedrift_navn, $bedrift->Adresse);
 
-      return view('bedrift.show', compact('bedrift', 'avstand'));
+      return view('bedrift.show', compact('bedrift', 'avstand', 'rating'));
     }
 
 
     // Sorteringsfunksjon. sorterer på kategori
     public function sort($filter)
     {
-        if($filter == 'Uteliv') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '1')->get();
+        if($filter == 'Butikker') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '6')->get();
         }
-        else if($filter == 'Butikker') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '2')->get();
-        }
-        else if($filter == 'Kollektiv') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '3')->get();
-        }
-        else if($filter == 'Helse') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '4')->get();
+        else if($filter == 'Uteliv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '7')->get();
         }
         else if($filter == 'Trening') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '5')->get();
+            $bedrifter = Bedrift::where('Kategori_id', '=', '8')->get();
+        }
+        else if($filter == 'Helse') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '9')->get();
+        }
+        else if($filter == 'Spisesteder') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '10')->get();
+        }
+        else if($filter == 'Kollektiv') {
+            $bedrifter = Bedrift::where('Kategori_id', '=', '11')->get();
         }
 
         $kategorier = Kategori::all();
@@ -179,19 +235,22 @@ class BedriftController extends Controller
         return $distance;
     }
 
-    public function rating($id){
-        $avgrating = Ratings::where('bedriftid', $id)->get()->AVG('score'); //test
+    public function rating($bedrift, $adresse){
 
-        return $avgrating;
-    }
+        $bedrift = urlencode($bedrift);
+        $adresse = urlencode($adresse);
+        $data = file_get_contents("https://maps.googleapis.com/maps/api/place/textsearch/json?query={{$bedrift}}+{{$adresse}}&key=AIzaSyAYR9gvYoViYikV9EGw2BAPYzf0CxqBRbU");
+        $data = json_decode($data);
 
-    public function rate($id, $score){
-        Ratings::insert(
-            [
-                'bedriftid' => $id,
-                'score' => $score
-            ]
-        );
+        $rating = 0.0;
+
+        foreach($data->results as $place) {
+            if($rating <= 0) {
+                $rating += $place->rating;
+            }
+            }
+
+        return $rating;
     }
 
 }

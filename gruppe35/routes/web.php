@@ -28,6 +28,10 @@ Route::get('bedrift/delete/{id}', 'BedriftController@delete');
 
 Route::get('bedrift/show/{id}', 'BedriftController@show');
 
+Route::get('bedrift/edit/{id}', 'BedriftController@edit');
+
+Route::post('bedrift/update/{id}', 'BedriftController@update');
+
 Route::post('kommentarer/{bedrift_id}', 'KommentarController@lagre');
 
 Route::get('bedrift/legg-til', 'BedriftController@pageLeggTilBedrift');
@@ -40,5 +44,4 @@ Route::post('bilder/upload', 'BildeController@upload');
 
 Route::get('bedrift/avstand/{bedrift}/{adresse}', 'BedriftController@avstand');
 
-Route::get('rating/{id}', 'BedriftController@rating');
-Route::get('rate/{id}/{score}', 'BedriftController@rate');
+Route::get('bedrift/rating/{bedrift}/{adresse}', 'BedriftController@rating');
