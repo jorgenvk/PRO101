@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('tittel', 'Registrer ny admin bruker - Westfinder')
+@section('tittel', 'Logg inn - Westfinder')
 
 @include('layout.header')
 
