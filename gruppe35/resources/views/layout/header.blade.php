@@ -16,7 +16,7 @@
 <ul class="nav navbar-nav">  <!-- class="active" -->
   <li><a href="{{ url('bedrift/list') }}"><img src="{{ url('icons/Bedrift.png') }}" width="50px"> Alle</a></li>
 @foreach (App\Kategori::orderBy('Kategori_navn', 'asc')->get() as $kategori)
-  <li><a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}">
+  <li><a href="{{ url('bedrift/list', [$kategori->Kategori_navn, 'Alfabetisk']) }}">
   <img src="{{ url('icons/'.$kategori->Kategori_navn.'.png') }}" width="50px">{{ $kategori->Kategori_navn }}</a></li>
 @endforeach
 </ul>

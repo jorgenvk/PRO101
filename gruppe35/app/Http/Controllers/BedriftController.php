@@ -145,30 +145,55 @@ class BedriftController extends Controller
 
 
     // Sorteringsfunksjon. sorterer på kategori
-    public function sort($filter)
+    public function sort($kategori = 'Alle', $filter = 'Alfabetisk')
     {
-        if($filter == 'Butikker') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '6')->get();
-        }
-        else if($filter == 'Uteliv') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '7')->get();
-        }
-        else if($filter == 'Trening') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '8')->get();
-        }
-        else if($filter == 'Helse') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '9')->get();
-        }
-        else if($filter == 'Spisesteder') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '10')->get();
-        }
-        else if($filter == 'Kollektiv') {
-            $bedrifter = Bedrift::where('Kategori_id', '=', '11')->get();
-        }
+      if($kategori == 'Butikker') {
+        $bla = '6';
+      }
+      else if($kategori == 'Uteliv') {
+        $bla = '7';
+      }
+      else if($kategori == 'Trening') {
+        $bla = '8';
+      }
+      else if($kategori == 'Helse') {
+        $bla = '9';
+      }
+      else if($kategori == 'Spisesteder') {
+        $bla = '10';
+      }
+      else if($kategori == 'Kollektiv') {
+        $bla = '11';
+      }
+
+          if($filter == 'Alfabetisk') {
+            if($kategori == 'Alle') {
+              $bedrifter = Bedrift::orderBy('Bedrift_navn', 'ASC')->get();
+            } else {
+              $bedrifter = Bedrift::where('Kategori_id', '=', $bla)->orderBy('Bedrift_navn', 'ASC')->get();
+            }
+
+          }
+          else if($filter == 'Fjerdingen') {
+            if($kategori == 'Alle') {
+              $bedrifter = Bedrift::orderBy('avstand_fjerdingen', 'ASC')->get();
+            } else {
+              $bedrifter = Bedrift::where('Kategori_id', '=', $bla)->orderBy('avstand_fjerdingen', 'ASC')->get();
+            }
+
+          }
+          else if($filter == 'Vulkan') {
+            if($kategori == 'Alle') {
+              $bedrifter = Bedrift::orderBy('avstand_vulkan', 'ASC')->get();
+            } else {
+              $bedrifter = Bedrift::where('Kategori_id', '=', $bla)->orderBy('avstand_vulkan', 'ASC')->get();
+            }
+    
+          }
 
         $kategorier = Kategori::all();
 
-        return view ('bedrift.list', compact('bedrifter', 'kategorier'));
+        return view ('bedrift.list', compact('bedrifter', 'kategorier', 'kategori', 'filter'));
     }
 
     public function search(Request $request)

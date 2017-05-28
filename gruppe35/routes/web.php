@@ -16,9 +16,9 @@ Route::get('/', 'Controller@forside');
 
 Route::get('bedrift/ny', 'BedriftController@pageNyBedrift');
 
-Route::get('bedrift/list', 'BedriftController@listBedrifter');
+Route::get('bedrift/list', 'BedriftController@sort');
 
-Route::get('bedrift/list/{filter}', 'BedriftController@sort');
+Route::get('bedrift/list/{kategori}/{filter}', 'BedriftController@sort');
 
 Route::post('bedrift/search', 'BedriftController@search');
 
