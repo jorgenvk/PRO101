@@ -14,14 +14,15 @@
     </iframe>
   </div>
 </div>
-<div class="bedrift col-md-10 col-md-offset-1">
+
   <div class="row">
+    <div class="bedrift col-md-10 col-md-offset-1">
         <h1 class="text-center"> {{ $bedrift->Bedrift_navn }}</h1>
         <div class="col-md-6">
             <img onclick="onClick(this)" src="{{ $bedrift->Bilde }}" class="img-responsive"/>
             <p>{{ $bedrift->Beskrivelse }}</p>
         </div>
-        <div class="col-md-6 info-text">
+        <div class="col-md-6">
           <ul>
             <li><img src="{{ url('icons/'.$bedrift->kategori->Kategori_navn.'.png') }}" class="listeikoner" />
               Kategori: {{ $bedrift->kategori->Kategori_navn }}</li>
@@ -70,11 +71,9 @@
 
         </div>
         </div>
-  <div class="row">
-<!-- ..row -->
 </div>
 </div>
-</div>
+
 <div class="row">
   <div id="kommentarskjema" class="col-md-8 col-md-offset-2">
     <h3 class="text-center">Legg til en kommentar om {{ $bedrift->Bedrift_navn }} her</h3>
@@ -100,6 +99,7 @@
 
     </form>
   </div>
+  </div>
 <div class="row">
 
 <div class="col-md-8 col-md-offset-2">
@@ -119,7 +119,7 @@
   @endforeach
 </div>
 </div>
-</div>
+
 
 
   <script>
