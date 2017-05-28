@@ -10,6 +10,15 @@
 
 <style>
     body{
+        position: absolute;
+        background-size: cover;
+        background-image: url("https://lh6.googleusercontent.com/WpLju4WpsAcAODXL73nKCgnoBz5AJqrKLKiuPeJmfq6LlmXq5mVTA9XzkvKCetSQtDrHRWtgpWJXn00=w1859-h917-rw");
+        display: block;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1;
         text-align: center;
     }
 </style>

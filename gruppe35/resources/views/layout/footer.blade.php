@@ -36,9 +36,7 @@
 
                 @if (!Auth::guest())
                     ·
-                <a href="/bedrift/ny">Ny bedrift</a>
-                ·
-                <a href="/arrangement/ny">Nytt arrangement</a>
+                <a href="/admin">Adminpanel</a>
                 @endif
 
                 @if (Auth::guest())
