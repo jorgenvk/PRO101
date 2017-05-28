@@ -13,6 +13,19 @@ class ArrangementController extends Controller
 {
     //
 
+    public function show($id)
+    {
+        $arrangement = Arrangement::find($id);
+
+        return view ('arrangement.show', compact('arrangement'));
+    }
+
+    public function list()
+    {
+        $arrangementer = Arrangement::all();
+        return view ('arrangement.list', compact('arrangementer'));
+    }
+
     public function pageNyttArrangement()
     {
     	$bedrifter = Bedrift::all();

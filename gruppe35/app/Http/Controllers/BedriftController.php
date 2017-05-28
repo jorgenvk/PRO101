@@ -144,7 +144,7 @@ class BedriftController extends Controller
     }
 
 
-    // Sorteringsfunksjon. sorterer på kategori
+    // Sorteringsfunksjon. sorterer på kategori og filter
     public function sort($kategori = 'Alle', $filter = 'Alfabetisk')
     {
       if($kategori == 'Butikker') {
@@ -188,7 +188,7 @@ class BedriftController extends Controller
             } else {
               $bedrifter = Bedrift::where('Kategori_id', '=', $bla)->orderBy('avstand_vulkan', 'ASC')->get();
             }
-    
+
           }
 
         $kategorier = Kategori::all();
@@ -196,7 +196,7 @@ class BedriftController extends Controller
         return view ('bedrift.list', compact('bedrifter', 'kategorier', 'kategori', 'filter'));
     }
 
-    public function search(Request $request)
+    public function search(Request $request, $kategori = 'Alle', $filter = 'Alfabetisk')
     {
 
             $kategorier = Kategori::all();
@@ -213,7 +213,7 @@ class BedriftController extends Controller
          }
             else $bedrifter = Bedrift::all();
 
-         return view('bedrift.list', compact('bedrifter', 'kategorier'));
+         return view('bedrift.list', compact('bedrifter', 'kategorier', 'kategori', 'filter'));
     }
 
     public function admin()
