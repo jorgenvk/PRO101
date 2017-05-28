@@ -21,6 +21,15 @@
 @endforeach
 </ul>
 
+@if (!Auth::guest())
+<ul class="nav navbar-nav navbar-right">
+  <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><img src="{{ url('icons/Bedrift.png') }}" width="50px"> Logg ut, {{ Auth::user()->name }}</a></li>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+</ul>
+@endif
+
 <!-- HØYRE SIDE -->
 <form class="navbar-form sokeboks" method="POST" action="{{ url('bedrift/search') }}" name="search" id="search" role="search">
 {{ csrf_field() }}
@@ -29,6 +38,7 @@
   </div>
   <button type="submit" class="btn btn-default">Søk</button>
 </form>
+
 
 
 </div><!--/.nav-collapse -->
