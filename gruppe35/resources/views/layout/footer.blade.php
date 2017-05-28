@@ -7,13 +7,12 @@
         }
         body {
             /* Margin bottom by footer height */
-            margin-bottom: 50px;
+            margin-bottom: 0px;
         }
         .footer {
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 0px;
             text-align: center;
             font-size: 16px;
         }

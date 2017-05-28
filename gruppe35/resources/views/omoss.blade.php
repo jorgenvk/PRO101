@@ -1,6 +1,5 @@
 @extends('layout.master')
 @include('layout.header')
-@include('layout.footer')
 @section('tittel', 'Om oss')
 
 <div class="bedrift col-md-10 col-md-offset-1">

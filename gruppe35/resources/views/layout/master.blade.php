@@ -1,6 +1,6 @@
 @include('layout.footer')
+@include('layout.header')
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="utf-8">
@@ -35,3 +35,10 @@
 
 </body>
 </html>
+
+<style>
+    body {
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+</style>

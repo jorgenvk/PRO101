@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('tittel', 'Bedrifter')
 
-@include('layout.header')
+
 
 @section('body')
 

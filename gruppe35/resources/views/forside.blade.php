@@ -1,65 +1,28 @@
 @extends('layout.master')
-@include('layout.footer')
+@include('layout.header')
 @section('tittel', 'FORSIDE')
 
 @section('header')
 <style>
-.bakgrunn {
-  background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG');
+body {
+  position: absolute;
   background-size: cover;
+  background-image: url("https://lh3.googleusercontent.com/uwZVGQLls0vrRnr7NumPGdjkBo-cjfIHfGMib7voSm6EusIqYG5d368U2f9lRdgK-0AmwuoCrdqnhRA=w1859-h966-rw");
   display: block;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  height: 800px;
+  height: 100%;
+  width: 100%;
   left: 0;
-  position: fixed;
   right: 0;
   z-index: 1;
 }
+
+  .kategorier img{
+    width: 130px;
+  }
 </style>
 @stop
-
+<div class="container">
 @section('body')
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-
-    <!-- LOGO -->
-    <center>
-      <img src="{{ url('bilder/logo.png') }}">
-    </center>
-
-    <!-- SØKEBOKS -->
-      <form method="POST" action="{{ url('bedrift/search') }}" name="search" id="search">
-        {{ csrf_field() }}
-        <input type="text" name="keyword" id="keyword" class="form-control"/>
-        <input type="submit" value="søk" class="form-control"/>
-      </form>
-
-    </div>
-  </div>
-
-  <div class="row">
-  <!-- KATEGORIER -->
-    <div class="col-md-8 col-md-offset-2 kategorier">
-      <a href="{{ url('bedrift/list') }}">Alle</a>
-      @foreach($kategorier as $kategori)
-        <a href="{{ url('bedrift/list/'.$kategori->Kategori_navn) }}"><img src="{{ url('icons/'.$kategori->Kategori_navn.'.png') }}">{{ $kategori->Kategori_navn }}</a>
-      @endforeach
-    </div>
-<!--     <div class="row">
-    @foreach($bedrifter as $bedrift)
-    <div class="col-md-2 bedriftdiv">
-    <a href="{{ url('bedrift/show/'.$bedrift->id) }}">
-    <img class="bedrift_thumbnail" src="{{ $bedrift->Bilde }}"/>
-    <h2>{{ $bedrift->Bedrift_navn }}</a></h2>
-    <p>{{ substr($bedrift->Beskrivelse, 0, 100) }}{{ strlen($bedrift->Beskrivelse) > 100 ? "..." : "" }}</p>
-    <p></p>
-    </div>
-    @endforeach
-    </div>
-    </div> -->
-  </div>
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -83,4 +46,4 @@
     </div>
   </div>  
 @endsection
-
+</div>
