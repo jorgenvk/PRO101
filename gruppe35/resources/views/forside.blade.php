@@ -1,6 +1,6 @@
 @extends('layout.master')
 @include('layout.header')
-@section('tittel', 'FORSIDE')
+@section('tittel', 'Forside - Westfinder')
 
 @section('header')
 <style>

@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('tittel', 'Bedrifter')
+
+@section('tittel') {{$kategori}} - Westfinder @stop
 
 
 
