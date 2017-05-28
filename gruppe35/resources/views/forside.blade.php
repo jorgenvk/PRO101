@@ -15,17 +15,22 @@ body {
   right: 0;
   z-index: 1;
 }
-
-  .kategorier img{
-    width: 130px;
+  .bildeboks{
+    top: 0;
+    border: solid;
   }
+
+  .row{
+    padding: 5%;
+  }
+
 </style>
 @stop
 <div class="container">
 @section('body')
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-calendar"></span> Hva skjer?</h2>
       @foreach ($arrangementer as $arrangement)
         {{ $arrangement->tittel }}
@@ -34,7 +39,7 @@ body {
   </div>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-0">
       <h2><span class="glyphicon glyphicon-camera"></span> Siste knips!</h2>
       @foreach ($bilder as $bilde)
         <div class="col-sm-2 bildeboks">
