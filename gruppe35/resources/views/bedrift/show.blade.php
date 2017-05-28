@@ -3,6 +3,9 @@
 @section('tittel', "$bedrift->Bedrift_navn - Westfinder")
 @include('layout.header')
 @section('body')
+  <?php
+    \Carbon\Carbon::setLocale('no');
+  ?>
 
 <div class="row">
   <div class="kart">
@@ -21,6 +24,22 @@
         <div class="col-md-6">
             <img onclick="onClick(this)" src="{{ $bedrift->Bilde }}" class="img-responsive"/>
             <p>{{ $bedrift->Beskrivelse }}</p>
+            <h3>Arrangementer som foregår her</h3>
+
+              @foreach($bedrift->arrangementer as $arrangement)
+                <div class="arrangement">
+                <a href="{{ url('arrangement/show', $arrangement->id) }}" >{{ $arrangement->tittel}}</a>
+                <hr />
+                  <p>Starter: @if (isset ($arrangement->starts_at)) {{ $arrangement->starts_at->diffForHumans() }} @endif</p>
+                  <p>Slutter: @if (isset ($arrangement->ends_at)) {{ $arrangement->ends_at->diffForHumans() }} @endif</p>
+                    <hr />
+                <p>
+                  {{ $arrangement->beskrivelse}}
+                </p>
+              </div>
+              @endforeach
+
+
         </div>
         <div class="col-md-6">
           <ul>

@@ -24,4 +24,8 @@ class Bedrift extends Model
       return $this->hasMany('App\Kommentar');
     }
 
+    public function arrangementer()
+    {
+      return $this->hasMany('App\Arrangement', 'sted', 'id');
+    }
 }
