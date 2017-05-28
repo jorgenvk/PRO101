@@ -1,5 +1,5 @@
 @extends('layout.master')
-@include('footer')
+@include('layout.footer')
 @section('tittel', 'Bedrifter')
 
 @include('layout.header')

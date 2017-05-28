@@ -25,4 +25,8 @@ class Controller extends BaseController
 
     	return view ('forside', compact('bedrifter', 'kategorier', 'arrangementer', 'bilder'));
     }
+
+    public function omoss(){
+        return view ('omoss');
+    }
 }

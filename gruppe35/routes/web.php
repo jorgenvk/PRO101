@@ -41,3 +41,5 @@ Route::post('bilder/upload', 'BildeController@upload');
 Route::get('bedrift/avstand/{bedrift}/{adresse}', 'BedriftController@avstand');
 
 Route::get('bedrift/rating/{bedrift}/{adresse}', 'BedriftController@rating');
+
+Route::get('omoss', 'Controller@omoss');

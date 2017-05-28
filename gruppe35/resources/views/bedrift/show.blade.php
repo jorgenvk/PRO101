@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('tittel', "$bedrift->Bedrift_navn")
-@include('footer')
+@include('layout.footer')
 @include('layout.header')
 @section('body')
 <div class="row">
