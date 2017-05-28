@@ -1,17 +1,3 @@
-@section('header')
-<style>
-.navbar-default {
-    background-color: #453F42;
-    border-color: #FF934F;
-}
-.nav.navbar-nav > li > a {
-  color:#EFECCA;
-}
-.nav.navbar-nav > li > a:hover {
-  color:#FF934F ;
-}
-</style>
-@stop
 <!-- ::::: HEADER ::::: -->
 <nav class="navbar navbar-default navbar-static-top">
 
@@ -36,7 +22,7 @@
 </ul>
 
 <!-- HØYRE SIDE -->
-<form class="navbar-form navbar-right" method="POST" action="{{ url('bedrift/search') }}" name="search" id="search" role="search">
+<form class="navbar-form sokeboks" method="POST" action="{{ url('bedrift/search') }}" name="search" id="search" role="search">
 {{ csrf_field() }}
   <div class="form-group">
     <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Søk her..">
