@@ -2,7 +2,11 @@
 
 @section('tittel') {{$kategori}} - Westfinder @stop
 
-
+<style>
+    body{
+        text-align: center;
+    }
+</style>
 
 @section('body')
 <div class="row">
