@@ -29,4 +29,9 @@ class Controller extends BaseController
     public function omoss(){
         return view ('omoss');
     }
+
+    public function admin()
+    {
+    	return view ('admin.index');
+    }
 }
