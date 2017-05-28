@@ -285,12 +285,8 @@ textarea {
     width: 50px;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
+.forsidediv
+{
+  height: 100px;
+  margin: 10px;
 }
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 0px;
-}
-
