@@ -275,18 +275,12 @@ textarea {
     position: absolute;
     bottom: 0;
     width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 120px;
     text-align: center;
-    font-size: 16px;
 }
-
 .footer img{
     width: 50px;
-}
-
-.forsidediv
-{
-  height: 100px;
-  margin: 10px;
 }
 
 html {
@@ -295,5 +289,5 @@ html {
 }
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }

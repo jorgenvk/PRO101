@@ -2,21 +2,9 @@
 @include('layout.header')
 @section('tittel', 'Forside - Westfinder')
 @section('header')
-<style>
-body{
-  position: absolute;
-  background-size: cover;
-  background-image: url("/bilder/forside.jpg");
-  display: block;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  }
-</style>
 @stop
 @section('body')
+  <div class="forsidebakgrunn">
 <div class="container">
   <div class="row">
     <div class="col-md-12 forside">
@@ -73,3 +61,13 @@ body{
     }
   }
   </script>
+  </div>
+  <style>
+    body{
+      background-size: cover;
+      background-image: url("/bilder/forside.jpg");
+      height: 100%;
+      width: 100%;
+      margin-bottom: -20px;
+    }
+  </style>
