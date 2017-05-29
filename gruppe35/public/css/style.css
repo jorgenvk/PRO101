@@ -54,7 +54,7 @@ h1, h2, h3 {
 
 .overlay {
   position: absolute;
-  bottom: 145px;
+  top: 145px;
   margin-top: 10px;
   background-color: rgba(0,0,0, 0.8);
   color: #EFECCA;
