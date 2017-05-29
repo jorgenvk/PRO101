@@ -54,7 +54,7 @@ h1, h2, h3 {
 
 .overlay {
   position: absolute;
-  top: 145px;
+  bottom: 145px;
   margin-top: 10px;
   background-color: rgba(0,0,0, 0.8);
   color: #EFECCA;
@@ -187,10 +187,11 @@ textarea {
     width: 80%;
     max-width: 700px;
 }
+
 .img-frame .img-responsive {
   max-height: 300px;
-  width: 100%;
 }
+
 .bilde {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;

@@ -20,7 +20,7 @@ body{
 <div class="container">
   <div class="row">
     <div class="col-md-12 forside">
-      <h2><img src="{{ url('icons/Bedrift_Ikon.png') }}" width="50px"> Hva skjer?</h2>
+      <h2><img src="{{ url('ikoner/Bedrift_Ikon.png') }}" width="50px"> Hva skjer?</h2>
        @foreach($arrangementer as $arrangement)
          <div class="col-md-3">
            <a href="{{ url('arrangement/show/'.$arrangement->id) }}">
@@ -35,7 +35,7 @@ body{
 
   <div class="row">
     <div class="col-md-12 forside">
-      <h2><img src="{{ url('icons/Kamera_Ikon.png') }}" width="50px"> Siste bilder</h2>
+      <h2><img src="{{ url('ikoner/Kamera_Ikon.png') }}" width="50px"> Siste bilder</h2>
        @foreach ($bilder as $bilde)
          <div class="col-md-2">
              <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">

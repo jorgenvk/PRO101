@@ -11,8 +11,6 @@ use Storage;
 
 class ArrangementController extends Controller
 {
-    //
-
     public function show($id)
     {
         $arrangement = Arrangement::find($id);
@@ -20,7 +18,7 @@ class ArrangementController extends Controller
         return view ('arrangement.show', compact('arrangement'));
     }
 
-    public function list()
+    public function listalle()
     {
         $arrangementer = Arrangement::all();
         return view ('arrangement.list', compact('arrangementer'));
@@ -82,4 +80,43 @@ class ArrangementController extends Controller
             return redirect()->back()->withInput()->withErrors("Du må legge ved et profilbilde av bedriften!");
         }
     }
+
+    public function admin()
+    {
+
+        $arrangementer = Arrangement::all();
+
+        return view ('arrangement.adminlist', compact('arrangementer'));
+    }
+
+    public function delete($id)
+    {
+        Arrangement::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        $arrangement = Arrangement::find($id);
+        $bedrifter = Bedrift::all();
+        return view('arrangement.edit', compact('arrangement', 'bedrifter'));
+    }
+
+    public function update (Request $request, $id)
+    {
+        $arrangement = Arrangement::find($id);
+        // Konverterer tidspunkter til Carbon
+        $starts_at = New Carbon($request->Tidspunkt_start);
+        $ends_at = New Carbon($request->Tidspunkt_slutt);        
+        $arrangement->tittel = $request->Tittel;
+        $arrangement->sted = $request->Sted;
+        $arrangement->starts_at = $starts_at;
+        $arrangement->ends_at = $ends_at;
+        $arrangement->beskrivelse = $request->Beskrivelse;
+        $arrangement->save();
+
+        return redirect('arrangement/show/'.$arrangement->id)->with('status_ok', '<strong>Bedriften er endret.</strong>');
+
+
+    }    
 }

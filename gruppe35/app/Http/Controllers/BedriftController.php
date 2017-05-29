@@ -220,10 +220,7 @@ class BedriftController extends Controller
     {
 
         $bedrifter = Bedrift::all();
-
         $kategorier = Kategori::all();
-
-
 
         return view ('bedrift.adminlist', compact('bedrifter', 'kategorier'));
     }

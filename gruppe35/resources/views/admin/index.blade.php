@@ -7,7 +7,9 @@
     <div id="topcontainer">
         <a href="{{ url('bedrift/ny') }}" class="btn btn-primary btn-lg">Legg til ny bedrift</a>
         <a href="{{ url('arrangement/ny') }}" class="btn btn-primary btn-lg">Legg til nytt arrangement</a>
+        <br><br>
         <a href="{{ url('bedrift/admin') }}" class="btn btn-primary btn-lg">Slett/Endre bedrift</a>
+        <a href="{{ url('arrangement/admin') }}" class="btn btn-primary btn-lg">Slett/Endre arrangement</a>
     </div>
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

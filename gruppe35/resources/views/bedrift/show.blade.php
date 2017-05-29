@@ -43,21 +43,21 @@
         </div>
         <div class="col-md-6">
           <ul>
-            <li><img src="{{ url('icons/'.$bedrift->kategori->Kategori_navn.'.png') }}" class="listeikoner" />
+            <li><img src="{{ url('ikoner/'.$bedrift->kategori->Kategori_navn.'.png') }}" class="listeikoner" />
               Kategori: {{ $bedrift->kategori->Kategori_navn }}</li>
-            <li><img src="{{ url('icons/Kart_Ikon3.png') }}" class="listeikoner" />
+            <li><img src="{{ url('ikoner/Kart_Ikon3.png') }}" class="listeikoner" />
               Adresse: {{ $bedrift->Adresse }}</li>
-            <li><img src="{{ url('icons/Chat_Ikon.png') }}" class="listeikoner" />
+            <li><img src="{{ url('ikoner/Chat_Ikon.png') }}" class="listeikoner" />
               Telefon: {{ $bedrift->Telefon }}</li>
-            <li><img src="{{ url('icons/Info_Ikon.png') }}" class="listeikoner" />
+            <li><img src="{{ url('ikoner/Info_Ikon.png') }}" class="listeikoner" />
               Åpningstider: {{ $bedrift->Åpningstider }}</li>
-            <li><img src="{{ url('icons/Søke_Ikon1.png') }}" class="listeikoner" />
+            <li><img src="{{ url('ikoner/Søke_Ikon1.png') }}" class="listeikoner" />
               Nettside: <a href="{{ url('http://'.$bedrift->Nettside) }}">{{ $bedrift->Nettside }}</a></li>
-            <li><img src="{{ url('icons/Campus_Ikon.png') }}" class="listeikoner" />
+            <li><img src="{{ url('ikoner/Campus_Ikon.png') }}" class="listeikoner" />
               {{ $bedrift->avstand_fjerdingen }}m / {{ $bedrift->minutter_fjerdingen }} min fra Campus Fjerdingen</li>
-            <li><img src="{{ url('icons/Campus_Ikon.png') }}" class="listeikoner" />
+            <li><img src="{{ url('ikoner/Campus_Ikon.png') }}" class="listeikoner" />
               {{ $bedrift->avstand_vulkan }}m / {{ $bedrift->minutter_vulkan }} min fra Campus Vulkan</li>
-              <li><img src="{{ url('icons/Info_Ikon.png') }}" class="listeikoner" />
+              <li><img src="{{ url('ikoner/Info_Ikon.png') }}" class="listeikoner" />
                   Anmeldelser: {{$rating}}/5</li>
           </ul>
           <div class="col-md-12 bildeopplastning">
@@ -70,7 +70,7 @@
               <input type="hidden" name="Bedrift_id" value="{{ $bedrift->id }}">
               <input id="fil" name="fil" type="file" style="display: none;"/>
               <label for="fil">
-              <img src="{{ url('icons/Kamera_Ikon.png') }}" class="kamera-ikon" />
+              <img src="{{ url('ikoner/Kamera_Ikon.png') }}" class="kamera-ikon" />
               </label>
 
             </form>
@@ -127,7 +127,7 @@
   @foreach($bedrift->kommentarer as $kommentar)
     <div class="kommentar">
       <div class="col-md-2">
-        <img src="{{ url('icons/Chat_Ikon.png') }}" class="kommentar-ikon" />
+        <img src="{{ url('ikoner/Chat_Ikon.png') }}" class="kommentar-ikon" />
       </div>
       <p>Fra {{ $kommentar->navn }}, <a href="mailto:{{ $kommentar->epost }}">{{ $kommentar->epost }}</a>
          skrevet {{ date('j M, Y H:i', strtotime($kommentar->created_at)) }}</p>
