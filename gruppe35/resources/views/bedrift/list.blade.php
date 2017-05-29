@@ -11,11 +11,17 @@
 
 @section('body')
 <div class="row">
-  <div class="filter col-md-6 col-md-offset-3">
+  <div class="col-md-3">
+    <h3 class="text-left">Kategori: <img src="{{ url('/ikoner/'.$kategori.'.png')}}" width="50px"/> {{ $kategori }}</h3>
+  </div>
+  <div class="filter col-md-6">
     <h3>Sorterer {{ ($filter == 'Alfabetisk') ? "i alfabetisk rekkefølge" : "etter avstand fra Campus ".$filter }}</h3>
     <a href="{{ url('bedrift/list', [$kategori, 'Alfabetisk']) }}"class="btn btn-primary btn-sm">Alfabetisk rekkefølge</a>
     <a href="{{ url('bedrift/list', [$kategori, 'Fjerdingen']) }}" class="btn btn-primary btn-sm">Avstand fra Campus Fjerdingen</a>
     <a href="{{ url('bedrift/list', [$kategori, 'Vulkan']) }}" class="btn btn-primary btn-sm">Avstand fra Campus Vulkan</a>
+  </div>
+  <div class="col-md-3">
+
   </div>
 </div>
 
