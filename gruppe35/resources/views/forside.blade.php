@@ -75,6 +75,6 @@
       background-image: url("/bilder/forside.jpg");
       height: 100%;
       width: 100%;
-      margin-bottom: -20px;
+      bottom: 60px;
     }
   </style>
