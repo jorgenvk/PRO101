@@ -26,11 +26,19 @@ body{
            <a href="{{ url('arrangement/show/'.$arrangement->id) }}">
              <img class="img-responsive" src="{{ Storage::disk('s3')->url($arrangement->bilde) }}"/>
            <h2>{{ $arrangement->tittel }}</a></h2>
-           <p>{{ substr($arrangement->beskrivelse, 0, 100) }}{{ strlen($arrangement->beskrivelse) > 100 ? "..." : "" }}</p>
+           <?php 
+             \Carbon\Carbon::setLocale('no');
+              $starter = new \Carbon\Carbon($arrangement->starts_at);
+           ?>
+           <h4>Arrangement {{ $starter->diffForHumans() }}</h4>
+           <p>{{ substr($arrangement->beskrivelse, 0, 40) }}{{ strlen($arrangement->beskrivelse) > 40 ? "..." : "" }}</p>
            <p></p>
          </div>
        @endforeach
     </div>
+       <div class="pull-right">
+          <a href="{{ url('/arrangement/list/') }}" style="bottom: 0px;">Vis alle arrangement</a>
+       </div>    
   </div>
 
   <div class="row">
@@ -42,6 +50,7 @@ body{
          </div>
        @endforeach
     </div>
+    </div>    
   </div>
 
     <div id="popup-vindu" class="bilde-ramme">
@@ -53,7 +62,6 @@ body{
   <script>
 
   var modal = document.getElementById('popup-vindu');
-
   var modalImg = document.getElementById("stort-bilde");
 
   function onClick(element) {
@@ -63,7 +71,6 @@ body{
 }
 
   var span = document.getElementsByClassName("close")[0];
-
   span.onclick = function() {
     modal.style.display = "none";
   }
