@@ -21,7 +21,7 @@
     <a href="{{ url('bedrift/list', [$kategori, 'Vulkan']) }}" class="btn btn-primary btn-sm">Avstand fra Campus Vulkan</a>
   </div>
   <div class="col-md-3">
-    
+
   </div>
 </div>
 
