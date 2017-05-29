@@ -4,7 +4,7 @@
 @include('layout.header')
 @section('body')
 
-<?php 
+<?php
   \Carbon\Carbon::setLocale('no');
 ?>
 
@@ -44,8 +44,6 @@
           </ul>
         </div>
   </div>
-</div>
-
 </div>
 
 
