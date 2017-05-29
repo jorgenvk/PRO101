@@ -65,7 +65,7 @@
             <hr>
             <div class="col-sm-2 lastoppboks">
 
-            <form action="{{ url('bilder/upload') }}" method="POST" enctype="multipart/form-data" name="formBilderUpload" id="formBilderUpload">
+            <form action="{{ url('/bilder/upload') }}" method="POST" enctype="multipart/form-data" name="formBilderUpload" id="formBilderUpload">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <input type="hidden" name="Bedrift_id" value="{{ $bedrift->id }}">
               <input id="fil" name="fil" type="file" style="display: none;"/>

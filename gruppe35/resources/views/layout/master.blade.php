@@ -11,14 +11,15 @@
 
 <title>@yield('tittel')</title>
 
-<!-- Midlertidig link til TwitterBootstrap - byttes ut med egen CSS etterhvert -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/style.css" type="text/css" />
+<!-- Link til Bootstrap og egen CSS -->
+<link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url('/css/style.css') }}" type="text/css" />
+<!-- Ekstern link til font - Lato -->
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <!-- Link til jQuery Script for dynamisk oppdatering av adresse i kartet -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{ url('/js/jquery-3.2.1.min.js') }}"></script>
 <!-- Link til Boostrap JS for "lukking av dialogbokser" -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{{ url('/js/bootstrap.min.js') }}"></script>
 @yield('header')
 </head>
 <body>

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\File;
 use App\Bilde;
 use App\Bedrift;
 use Storage;
+use Image;
+
 
 class BildeController extends Controller
 {
@@ -13,8 +16,21 @@ class BildeController extends Controller
     {
     	if ($request->hasFile('fil'))
     		{
-    			if ($s3upload = Storage::disk('s3')->putFile('', $request->file('fil'), 'public'))
+                // Rotere bilder (fra mobil)
+                $filepath = $request->file('fil')->getPathName();
+                $filepath = $filepath.'/'.$request->file('fil')->getClientOriginalName();
+                $file = $request->file('fil');
+                $bilde = Image::make($file);
+                $bilde->orientate();
+                $tmp_bildenavn = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME).'.'.$file->getClientOriginalExtension();
+                $bilde->save(public_path($tmp_bildenavn));
+                $lagret_bildenavn = $bilde->dirname.'/'.$bilde->basename;
+
+    			if ($s3upload = Storage::disk('s3')->putFile('', new File($lagret_bildenavn), 'public'))
     				{
+                        // Slett midlertidige variabler
+                        $bilde->destroy();
+                        // Oppretter bildet
                         $bilde = New Bilde;
                         $bilde->bilde = $s3upload;
                         $bilde->Bedrift_id = $request->Bedrift_id;
