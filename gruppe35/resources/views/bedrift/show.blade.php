@@ -123,7 +123,7 @@
 
 <div class="col-md-8 col-md-offset-2">
 
-  <h1 class="text-center">{{ count($bedrift->kommentarer) }} kommentarer</h1>
+  <h1 class="text-center">{{ count($bedrift->kommentarer) }} @if ($bedrift->kommentarer->count() == 1) kommentar @else kommentarer @endif</h1>
   @foreach($bedrift->kommentarer as $kommentar)
     <div class="kommentar">
       <div class="col-md-2">
