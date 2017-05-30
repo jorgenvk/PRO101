@@ -144,8 +144,8 @@ textarea {
 }
 
 .liten-thumbnail {
-  width: 100px;
-  height: 60px;
+  max-width: 100px;
+  max-height: 200px;
   margin-top: 10px;
   cursor: pointer;
   transition: 0.3s;
@@ -289,4 +289,15 @@ body{
 
 .status_ikoner{
   height: 60px;
+}
+
+.sistebilder{
+  max-height: 170px;
+}
+
+@media screen and (max-width: 500px) {
+  .footer{
+    visibility: hidden;
+    display: none;
+  }
 }

@@ -45,7 +45,7 @@
       <h2><img src="{{ url('ikoner/Kamera_Ikon.png') }}" width="50px"> Siste bilder</h2>
        @foreach ($bilder as $bilde)
          <div class="col-md-2">
-             <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive">
+             <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($bilde->bilde) }}" class="img-responsive liten-thumbnail">
          </div>
        @endforeach
     </div>
