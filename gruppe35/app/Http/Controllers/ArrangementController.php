@@ -68,7 +68,7 @@ class ArrangementController extends Controller
                 $arrangement->bilde = $s3upload;
                 $arrangement->save();
 
-                return redirect('bedrift/show/'.$request->Sted)->with('status_ok', '<strong>Arrangementet er opprettet</strong><br>Du har lagt til et nytt arrangement på denne bedriften.');
+                return redirect('arrangement/show/'.$arrangement->id)->with('status_ok', '<strong>Arrangementet er opprettet</strong><br>Du har lagt til et nytt arrangement på denne bedriften.');
             }
         else
             {
@@ -107,7 +107,7 @@ class ArrangementController extends Controller
         $arrangement = Arrangement::find($id);
         // Konverterer tidspunkter til Carbon
         $starts_at = New Carbon($request->Tidspunkt_start);
-        $ends_at = New Carbon($request->Tidspunkt_slutt);        
+        $ends_at = New Carbon($request->Tidspunkt_slutt);   
         $arrangement->tittel = $request->Tittel;
         $arrangement->sted = $request->Sted;
         $arrangement->starts_at = $starts_at;

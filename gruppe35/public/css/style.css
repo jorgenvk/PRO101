@@ -46,7 +46,7 @@ h1, h2, h3 {
 
 .bedriftdiv {
   margin: 10px 0px 0px 0px;
-  height: 400px;
+  height: 450px;
 }
 
 .overlay {
@@ -282,7 +282,11 @@ html {
     position: relative;
     min-height: 100%;
 }
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 120px;
+
+body{
+  margin-bottom: 120px;
+}
+
+.status_ikoner{
+  height: 60px;
 }

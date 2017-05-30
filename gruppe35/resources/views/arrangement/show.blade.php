@@ -18,12 +18,20 @@
   </iframe>
 </div>
 
+<?php 
+  \Carbon\Carbon::setLocale('no');
+  setlocale(LC_TIME, 'Norwegian');
+  $starter = new \Carbon\Carbon($arrangement->starts_at);
+  $slutter = new \Carbon\Carbon($arrangement->ends_at);
+?>
+
+
 <!-- BOKS: Arrangement -->
 <div class="bedrift col-md-10 col-md-offset-1">
   <div class="row">
         <h1 class="text-center">Arrangement: "{{ $arrangement->tittel }}"</h1>
         <div class="col-md-6">
-            <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($arrangement->bilde) }}" class="bedriftbilde"/>
+            <img onclick="onClick(this)" src="{{ Storage::disk('s3')->url($arrangement->bilde) }}" class="img-responsive bedriftbilde"/>
             <p>{{ $arrangement->beskrivelse }}</p>
         </div>
         <div class="col-md-6 info-text">
@@ -32,9 +40,9 @@
               Sted: <a href="{{ url('bedrift/show/'.$arrangement->bedrift->id) }}">{{ $arrangement->bedrift->Bedrift_navn }}, {{ $arrangement->bedrift->Adresse }}</a></li>
 
             <li><img src="{{ url('ikoner/Kart_Ikon3.png') }}" class="listeikoner" />
-              Starter: @if (isset ($arrangement->starts_at)) {{ $arrangement->starts_at->diffForHumans() }} @endif</li>
+              Starter: @if (isset ($arrangement->starts_at)) {{ $starter->formatLocalized('%A %d %B %Y - %H:%m') }}  ({{ $starter->diffForHumans() }}) @endif</li>
             <li><img src="{{ url('ikoner/Kart_Ikon3.png') }}" class="listeikoner" />
-              Slutter: @if (isset ($arrangement->ends_at)) {{ $arrangement->ends_at->diffForHumans() }} @endif</li>
+              Slutter: @if (isset ($arrangement->ends_at)) {{ $slutter->formatLocalized('%A %d %B %Y - %H:%m') }}  ({{ $slutter->diffForHumans() }}) @endif</li>
 
             <br><br>
             <li><img src="{{ url('ikoner/Campus_Ikon.png') }}" class="listeikoner" />

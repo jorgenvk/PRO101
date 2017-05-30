@@ -58,7 +58,7 @@
             <li><img src="{{ url('ikoner/Campus_Ikon.png') }}" class="listeikoner" />
               {{ $bedrift->avstand_vulkan }}m / {{ $bedrift->minutter_vulkan }} min fra Campus Vulkan</li>
               <li><img src="{{ url('ikoner/Info_Ikon.png') }}" class="listeikoner" />
-                  Anmeldelser: {{$rating}}/5</li>
+                  Anmeldelser: @if (isset($rating)) {{$rating}} @endif/5</li>
           </ul>
           <div class="col-md-12 bildeopplastning">
             <h3>Last opp ditt eget bilde fra {{ $bedrift->Bedrift_navn }} her!</h3>

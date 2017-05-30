@@ -21,7 +21,7 @@ class Controller extends BaseController
     	$bedrifter = Bedrift::all();
         $kategorier = Kategori::all();
         $arrangementer = Arrangement::latest()->take(4)->get();
-        $bilder = Bilde::latest()->take(8)->get();
+        $bilder = Bilde::latest()->take(6)->get();
 
     	return view ('forside', compact('bedrifter', 'kategorier', 'arrangementer', 'bilder'));
     }

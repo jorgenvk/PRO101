@@ -1,4 +1,4 @@
-@include('layout.footer')
+
 @include('layout.header')
 <!DOCTYPE html>
 <html>
@@ -42,3 +42,4 @@
         padding-bottom: 100px;
     }
 </style>
+@include('layout.footer')

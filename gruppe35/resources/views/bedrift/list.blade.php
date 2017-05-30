@@ -6,7 +6,6 @@
     body{
         text-align: center;
     }
-
 </style>
 
 @section('body')

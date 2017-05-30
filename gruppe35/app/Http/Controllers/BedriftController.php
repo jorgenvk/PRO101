@@ -41,14 +41,12 @@ class BedriftController extends Controller
                         [
                             'Navn'              => 'required:max:250',
                             'Adresse'           => 'required:max:250',
-                            'Telefon'           => 'integer'
                         ],
                         [
                             'Navn.required'     => 'Bedriften må ha et navn!',
                             'Adresse.required'  => 'Bedriften må ha en adresse!',
                             'Navn.max'          => 'Bedriftsnavnet er for langt!',
                             'Adresse.max'       => 'Adressen til bedriften er for lang. Prøv å formater den kortere!',
-                            'Telefon.integer'   => 'Ikke et gyldig telefonnummer!'
                         ]);
                 if($validator->passes())
                     {
@@ -59,7 +57,7 @@ class BedriftController extends Controller
                                 $bedrift->Bedrift_navn  = $request->Navn;
                                 $bedrift->Kategori_id   = $request->Kategori;
                                 $bedrift->Adresse       = $request->Adresse;
-                                $bedrift->Telefon       = $request->Telefon;
+                                if (is_int($request->Telefon)) {$bedrift->Telefon = $request->Telefon;} else {$bedrift->Telefon = NULL;};
                                 $bedrift->Beskrivelse   = $request->Beskrivelse;
                                 $bedrift->Åpningstider  = $request->Åpningstider;
                                 $bedrift->Nettside      = $request->Nettside;
@@ -233,6 +231,7 @@ class BedriftController extends Controller
 
         return redirect()->back();
     }
+    
     public function avstand($bedrift, $adresse){
         $bedrift = urlencode($bedrift);
         $adresse = urlencode($adresse);

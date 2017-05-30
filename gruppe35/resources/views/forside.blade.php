@@ -2,9 +2,18 @@
 @include('layout.header')
 @section('tittel', 'Forside - Westfinder')
 @section('header')
+  <style>
+    body{
+      background-size: cover;
+      background-image: url("/bilder/forside.jpg");
+      height: 100%;
+      width: 100%;
+      margin-bottom: 0px;
+    }
+  </style>
 @stop
 @section('body')
-  <div class="forsidebakgrunn">
+<div class="forsidebakgrunn">
 <div class="container">
   <div class="row">
     <div class="col-md-12 forside">
@@ -14,10 +23,12 @@
            <a href="{{ url('arrangement/show/'.$arrangement->id) }}">
              <img class="img-responsive" src="{{ Storage::disk('s3')->url($arrangement->bilde) }}"/>
            <h2>{{ $arrangement->tittel }}</a></h2>
+
            <?php 
              \Carbon\Carbon::setLocale('no');
               $starter = new \Carbon\Carbon($arrangement->starts_at);
            ?>
+
            <h4>Arrangement {{ $starter->diffForHumans() }}</h4>
            <p>{{ substr($arrangement->beskrivelse, 0, 40) }}{{ strlen($arrangement->beskrivelse) > 40 ? "..." : "" }}</p>
            <p></p>
@@ -69,12 +80,3 @@
   }
   </script>
   </div>
-  <style>
-    body{
-      background-size: cover;
-      background-image: url("/bilder/forside.jpg");
-      height: 100%;
-      width: 100%;
-      margin-bottom: 0;
-    }
-  </style>
